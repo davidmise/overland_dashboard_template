@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Shipment — Overland Fleet Management</title>
+  <link rel="icon" type="image/x-icon" href="../image/BrandGuidline/overland_logo_favico/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="../assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="../assets/css/overland-light.css">
+  <link rel="stylesheet" href="../assets/css/overland-dark.css">
+  <link rel="stylesheet" href="../assets/css/overland.css">
+</head>
+<body>
+
+<div class="ol-layout">
+
+  <!-- SIDEBAR -->
+  <nav id="ol-sidebar" class="ol-sidebar" aria-label="Main navigation">
+    <div class="ol-sidebar__logo">
+      <img src="../image/BrandGuidline/overland_logo_digital/SVG/Logo-03.svg"
+           alt="Overland" class="ol-sidebar__logo-full">
+      <img src="../image/BrandGuidline/overland_logo_favico/favicon-32x32.png"
+           alt="Overland" class="ol-sidebar__logo-mark">
+    </div>
+    <div class="ol-sidebar__nav">
+      <ul class="list-unstyled mb-0">
+        <li><span class="ol-sidebar__section-label">Overview</span></li>
+        <li class="ol-nav-item">
+          <a href="../index.html" class="ol-nav-link" data-label="Dashboard">
+            <i class="bi bi-speedometer2 ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Dashboard</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Fleet</span></li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Vehicles">
+            <i class="bi bi-truck ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Vehicles</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Maintenance">
+            <i class="bi bi-tools ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Maintenance</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Operations</span></li>
+        <li class="ol-nav-item">
+          <a href="table.html" class="ol-nav-link" data-label="Shipments">
+            <i class="bi bi-box-seam ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Shipments</span>
+            <span class="ol-nav-link__badge">14</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Routes">
+            <i class="bi bi-map ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Routes</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Drivers">
+            <i class="bi bi-person-badge ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Drivers</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Analytics</span></li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Reports">
+            <i class="bi bi-bar-chart-line ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="ol-sidebar__footer">
+      <ul class="list-unstyled mb-3">
+        <li class="ol-nav-item">
+          <a href="settings.html" class="ol-nav-link" data-label="Settings">
+            <i class="bi bi-gear ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <button id="ol-sidebar-collapse-btn" class="ol-sidebar__collapse-btn" aria-label="Collapse sidebar">
+        <i class="bi bi-layout-sidebar-reverse"></i>
+        <span>Collapse</span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="ol-sidebar-backdrop" class="ol-sidebar-backdrop" role="presentation"></div>
+
+  <!-- MAIN WRAPPER -->
+  <div id="ol-main-wrapper" class="ol-main-wrapper">
+
+    <!-- TOP BAR -->
+    <header class="ol-topbar">
+      <button id="ol-mobile-toggle" class="ol-topbar__mobile-toggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="ol-topbar__search">
+        <div class="input-group">
+          <span class="input-group-text border-end-0"><i class="bi bi-search"></i></span>
+          <input type="search" class="form-control border-start-0" placeholder="Search…" aria-label="Search">
+        </div>
+      </div>
+      <div class="ol-topbar__actions">
+        <button id="ol-theme-toggle" class="ol-topbar__icon-btn" aria-label="Toggle theme">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <a href="#" class="ol-topbar__icon-btn" aria-label="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="ol-topbar__notification-dot"></span>
+        </a>
+        <div class="ol-topbar__divider"></div>
+        <div class="dropdown">
+          <button class="ol-topbar__user" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="ol-avatar">JS</div>
+            <div class="ol-topbar__user-info">
+              <span class="ol-topbar__user-name">James Smith</span>
+              <span class="ol-topbar__user-role">Fleet Manager</span>
+            </div>
+            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="ol-content" id="main-content">
+
+      <!-- Page header -->
+      <div class="ol-page-header">
+        <div class="ol-page-header__left">
+          <nav aria-label="breadcrumb" class="ol-breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="table.html">Shipments</a></li>
+              <li class="breadcrumb-item active" aria-current="page">New Shipment</li>
+            </ol>
+          </nav>
+          <h1 class="ol-page-title">New Shipment</h1>
+          <p class="ol-page-subtitle">Complete all required fields to create a new shipment record.</p>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="table.html" class="btn btn-outline-secondary btn-icon">
+            <i class="bi bi-arrow-left"></i> Cancel
+          </a>
+        </div>
+      </div>
+
+      <form id="shipment-form" novalidate>
+
+        <div class="row g-4">
+
+          <!-- LEFT COLUMN — Main details -->
+          <div class="col-12 col-xl-8">
+
+            <!-- Shipment Details -->
+            <fieldset class="ol-fieldset">
+              <legend class="ol-fieldset-legend">
+                <i class="bi bi-box-seam me-2"></i>Shipment Details
+              </legend>
+              <div class="row g-4 mt-0">
+                <div class="col-12 col-md-6">
+                  <label for="tracking-ref" class="form-label">
+                    Tracking Reference <span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text">OVL-</span>
+                    <input type="text" class="form-control" id="tracking-ref"
+                           placeholder="2024-013" pattern="[0-9\-]+" required>
+                    <div class="invalid-feedback">Please enter a valid tracking reference.</div>
+                  </div>
+                  <div class="form-text">Auto-generated on save if left blank.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="shipment-type" class="form-label">
+                    Shipment Type <span class="text-danger">*</span>
+                  </label>
+                  <select class="form-select" id="shipment-type" required>
+                    <option value="">Select type…</option>
+                    <option>General Freight</option>
+                    <option>Refrigerated</option>
+                    <option>Hazardous Materials</option>
+                    <option>Oversized Load</option>
+                    <option>Express</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a shipment type.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="weight" class="form-label">
+                    Weight (kg) <span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="weight"
+                           placeholder="0" min="1" max="99999" required>
+                    <span class="input-group-text">kg</span>
+                    <div class="invalid-feedback">Please enter a valid weight (1–99,999 kg).</div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="volume" class="form-label">Volume (m³)</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="volume"
+                           placeholder="0.0" step="0.1" min="0">
+                    <span class="input-group-text">m³</span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label for="cargo-description" class="form-label">
+                    Cargo Description <span class="text-danger">*</span>
+                  </label>
+                  <textarea class="form-control" id="cargo-description" rows="3"
+                            placeholder="Describe the cargo contents…" required></textarea>
+                  <div class="invalid-feedback">Please provide a cargo description.</div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Route Details -->
+            <fieldset class="ol-fieldset">
+              <legend class="ol-fieldset-legend">
+                <i class="bi bi-map me-2"></i>Route Details
+              </legend>
+              <div class="row g-4 mt-0">
+                <div class="col-12 col-md-6">
+                  <label for="origin-city" class="form-label">
+                    Origin City <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="origin-city"
+                         placeholder="e.g. Cape Town" required>
+                  <div class="invalid-feedback">Origin city is required.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="origin-address" class="form-label">
+                    Origin Address <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="origin-address"
+                         placeholder="Street address" required>
+                  <div class="invalid-feedback">Origin address is required.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="dest-city" class="form-label">
+                    Destination City <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="dest-city"
+                         placeholder="e.g. Johannesburg" required>
+                  <div class="invalid-feedback">Destination city is required.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="dest-address" class="form-label">
+                    Destination Address <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="dest-address"
+                         placeholder="Street address" required>
+                  <div class="invalid-feedback">Destination address is required.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="pickup-date" class="form-label">
+                    Pickup Date & Time <span class="text-danger">*</span>
+                  </label>
+                  <input type="datetime-local" class="form-control" id="pickup-date" required>
+                  <div class="invalid-feedback">Pickup date and time are required.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="delivery-date" class="form-label">
+                    Estimated Delivery <span class="text-danger">*</span>
+                  </label>
+                  <input type="datetime-local" class="form-control" id="delivery-date" required>
+                  <div class="invalid-feedback">Estimated delivery date is required.</div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Documents -->
+            <fieldset class="ol-fieldset">
+              <legend class="ol-fieldset-legend">
+                <i class="bi bi-paperclip me-2"></i>Documents
+              </legend>
+              <div class="row g-4 mt-0">
+                <div class="col-12">
+                  <label for="waybill" class="form-label">Waybill / Manifest</label>
+                  <input type="file" class="form-control" id="waybill"
+                         accept=".pdf,.jpg,.jpeg,.png" multiple>
+                  <div class="form-text">Accepted formats: PDF, JPG, PNG. Max 10 MB per file.</div>
+                </div>
+                <div class="col-12">
+                  <label for="special-instructions" class="form-label">Special Instructions</label>
+                  <textarea class="form-control" id="special-instructions" rows="2"
+                            placeholder="Handling instructions, temperature requirements, delivery notes…"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+          </div><!-- /left column -->
+
+          <!-- RIGHT COLUMN — Assignment & status -->
+          <div class="col-12 col-xl-4">
+
+            <!-- Assignment -->
+            <div class="ol-settings-section mb-4">
+              <div class="ol-settings-section__header">
+                <h3 class="ol-settings-section__title">
+                  <i class="bi bi-person-badge me-2 text-brand-red"></i>Assignment
+                </h3>
+              </div>
+              <div class="ol-settings-section__body">
+                <div class="mb-4">
+                  <label for="assign-driver" class="form-label">
+                    Driver <span class="text-danger">*</span>
+                  </label>
+                  <select class="form-select" id="assign-driver" required>
+                    <option value="">Select driver…</option>
+                    <option>D. Mokoena</option>
+                    <option>S. Nkosi</option>
+                    <option>T. Dlamini</option>
+                    <option>M. van Wyk</option>
+                    <option>L. Sithole</option>
+                    <option>A. Botha</option>
+                    <option>P. Ndlovu</option>
+                    <option>R. Baloyi</option>
+                  </select>
+                  <div class="invalid-feedback">Please assign a driver.</div>
+                </div>
+                <div class="mb-4">
+                  <label for="assign-vehicle" class="form-label">
+                    Vehicle <span class="text-danger">*</span>
+                  </label>
+                  <select class="form-select" id="assign-vehicle" required>
+                    <option value="">Select vehicle…</option>
+                    <option>TRK-007 — Volvo FH</option>
+                    <option>TRK-009 — Mercedes Actros</option>
+                    <option>TRK-013 — MAN TGX</option>
+                    <option>TRK-018 — Scania R</option>
+                    <option>TRK-022 — DAF XF</option>
+                    <option>TRK-031 — Iveco Stralis</option>
+                    <option>TRK-033 — Volvo FM</option>
+                    <option>TRK-038 — Mercedes Arocs</option>
+                    <option>TRK-042 — MAN TGS</option>
+                    <option>TRK-047 — Scania G</option>
+                  </select>
+                  <div class="invalid-feedback">Please assign a vehicle.</div>
+                </div>
+                <div>
+                  <label for="assign-route" class="form-label">Route</label>
+                  <select class="form-select" id="assign-route">
+                    <option value="">Select route…</option>
+                    <option>N1 — Cape Town to Johannesburg</option>
+                    <option>N2 — Durban Coastal</option>
+                    <option>N3 — Johannesburg to Durban</option>
+                    <option>N4 — Pretoria to Nelspruit</option>
+                    <option>N12 — Johannesburg to Kimberley</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status & Priority -->
+            <div class="ol-settings-section mb-4">
+              <div class="ol-settings-section__header">
+                <h3 class="ol-settings-section__title">
+                  <i class="bi bi-flag me-2 text-brand-red"></i>Status & Priority
+                </h3>
+              </div>
+              <div class="ol-settings-section__body">
+                <div class="mb-4">
+                  <label for="shipment-status" class="form-label">Status</label>
+                  <select class="form-select" id="shipment-status">
+                    <option>Scheduled</option>
+                    <option>Pending</option>
+                    <option>In Transit</option>
+                    <option>Delivered</option>
+                    <option>Delayed</option>
+                    <option>Cancelled</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label d-block">Priority</label>
+                  <div class="d-flex gap-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="priority" id="priority-standard" value="standard" checked>
+                      <label class="form-check-label" for="priority-standard">Standard</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="priority" id="priority-express" value="express">
+                      <label class="form-check-label" for="priority-express">Express</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="priority" id="priority-urgent" value="urgent">
+                      <label class="form-check-label" for="priority-urgent">Urgent</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Client Info -->
+            <div class="ol-settings-section">
+              <div class="ol-settings-section__header">
+                <h3 class="ol-settings-section__title">
+                  <i class="bi bi-building me-2 text-brand-red"></i>Client
+                </h3>
+              </div>
+              <div class="ol-settings-section__body">
+                <div class="mb-3">
+                  <label for="client-name" class="form-label">Client / Company Name</label>
+                  <input type="text" class="form-control" id="client-name" placeholder="Company name">
+                </div>
+                <div class="mb-3">
+                  <label for="client-contact" class="form-label">Contact Person</label>
+                  <input type="text" class="form-control" id="client-contact" placeholder="Full name">
+                </div>
+                <div>
+                  <label for="client-phone" class="form-label">Phone Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                    <input type="tel" class="form-control" id="client-phone"
+                           placeholder="+27 12 345 6789">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /right column -->
+        </div><!-- /row -->
+
+        <!-- Form actions -->
+        <hr class="ol-divider">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary btn-icon">
+              <i class="bi bi-floppy"></i> Save as Draft
+            </button>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="table.html" class="btn btn-outline-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary btn-icon">
+              <i class="bi bi-plus-lg"></i> Create Shipment
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </main>
+  </div><!-- /ol-main-wrapper -->
+</div><!-- /ol-layout -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/overland.js"></script>
+<script>
+  /* Bootstrap HTML5 form validation */
+  document.getElementById('shipment-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.classList.add('was-validated');
+    if (this.checkValidity()) {
+      /* Replace with real API call */
+      window.location.href = 'table.html';
+    }
+  });
+</script>
+
+</body>
+</html>

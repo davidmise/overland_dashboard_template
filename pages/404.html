@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Page Not Found · Overland Fleet Management</title>
+  <link rel="icon" type="image/x-icon" href="../image/BrandGuidline/overland_logo_favico/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="../assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="../assets/css/overland-light.css">
+  <link rel="stylesheet" href="../assets/css/overland-dark.css">
+  <link rel="stylesheet" href="../assets/css/overland.css">
+</head>
+<body>
+
+<div class="ol-error-page">
+  <!-- Decorative brand graphic -->
+  <div class="ol-error-page__graphic"
+       style="background-image: url('../image/BrandGuidline/graphic_element.png');"></div>
+
+  <!-- Logo -->
+  <a href="../index.html" style="position:relative;z-index:1;margin-bottom:var(--ol-space-8);display:block;">
+    <img src="../image/BrandGuidline/overland_logo_digital/SVG/Logo-01.svg"
+         alt="Overland" style="height:40px;">
+  </a>
+
+  <!-- 404 code -->
+  <p class="ol-error-code" style="position:relative;z-index:1;" aria-hidden="true">404</p>
+
+  <!-- Title & message -->
+  <h1 class="ol-error-title" style="position:relative;z-index:1;">Route Not Found</h1>
+  <p class="ol-error-message" style="position:relative;z-index:1;">
+    Looks like this route doesn't exist in our system. The page you were looking for may have been moved, deleted, or the URL may be incorrect.
+  </p>
+
+  <!-- Actions -->
+  <div class="d-flex gap-3 justify-content-center flex-wrap" style="position:relative;z-index:1;">
+    <a href="../index.html" class="btn btn-primary btn-lg btn-icon">
+      <i class="bi bi-speedometer2"></i> Back to Dashboard
+    </a>
+    <button onclick="history.back()" class="btn btn-outline-secondary btn-lg btn-icon">
+      <i class="bi bi-arrow-left"></i> Go Back
+    </button>
+  </div>
+
+  <!-- Quick links -->
+  <div style="position:relative;z-index:1;margin-top:var(--ol-space-10);">
+    <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);margin-bottom:var(--ol-space-3);">
+      Or try one of these:
+    </p>
+    <div class="d-flex gap-3 flex-wrap justify-content-center">
+      <a href="table.html" class="btn btn-sm btn-outline-primary btn-icon">
+        <i class="bi bi-box-seam"></i> Shipments
+      </a>
+      <a href="settings.html" class="btn btn-sm btn-outline-primary btn-icon">
+        <i class="bi bi-gear"></i> Settings
+      </a>
+      <a href="login.html" class="btn btn-sm btn-outline-secondary btn-icon">
+        <i class="bi bi-person"></i> Sign In
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <p style="position:relative;z-index:1;font-size:var(--ol-fs-xs);color:var(--ol-muted-text);margin-top:var(--ol-space-12);">
+    &copy; 2026 Overland Logistics &mdash; All rights reserved
+  </p>
+
+  <!-- Theme toggle -->
+  <div style="position:absolute;top:var(--ol-space-4);right:var(--ol-space-6);z-index:1;">
+    <button id="ol-theme-toggle" class="ol-topbar__icon-btn" aria-label="Toggle theme">
+      <i class="bi bi-moon-fill"></i>
+    </button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/overland.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* ==========================================================================
+   OVERLAND DESIGN SYSTEM — Design Tokens  (overland-tokens.css)
+   All brand CSS custom properties. Must be imported FIRST.
+   ========================================================================== */
+
+:root {
+
+  /* ── Primary Brand Palette ──────────────────────────────────────────────── */
+  --ol-black:           #000000;    /* Sidebar, primary text                  */
+  --ol-gold:            #fac56e;    /* Accent highlights                      */
+  --ol-red:             #ed1c24;    /* Primary CTA, danger, active state      */
+  --ol-white:           #ffffff;
+
+  /* ── Secondary Brand Palette ────────────────────────────────────────────── */
+  --ol-gray:            #7c7b7b;    /* Secondary text, muted elements         */
+  --ol-tan:             #d8b478;    /* Neutral accent                         */
+  --ol-orange:          #f89f1e;    /* Warning states                         */
+  --ol-lime:            #a0b83b;    /* Success states                         */
+
+  /* ── Computed Tints & Shades ────────────────────────────────────────────── */
+  --ol-red-dark:        #c41019;
+  --ol-red-darker:      #a30d12;
+  --ol-red-light:       #fde8e9;
+  --ol-gold-dark:       #e5a94a;
+  --ol-gold-light:      #fff8ee;
+  --ol-lime-dark:       #7d9026;
+  --ol-lime-light:      #eef3d8;
+  --ol-orange-dark:     #d4820a;
+  --ol-orange-light:    #fff3e0;
+  --ol-gray-light:      #f5f5f5;
+  --ol-gray-dark:       #3a3a3a;
+
+  /* ── Typography — Brand Font ────────────────────────────────────────────── */
+  /* Switzer: used for headings, sub-headings, display text                    */
+  --ol-font-brand:      'Switzer', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* ── Typography — System Font ──────────────────────────────────────────── */
+  /* Helvetica/Arial: used for body copy, labels, UI controls                  */
+  --ol-font-system:     'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* ── Font Weights (Switzer family) ─────────────────────────────────────── */
+  --ol-fw-thin:         100;
+  --ol-fw-light:        300;
+  --ol-fw-regular:      400;
+  --ol-fw-medium:       500;
+  --ol-fw-bold:         700;
+  --ol-fw-black:        900;
+
+  /* ── Type Scale ─────────────────────────────────────────────────────────── */
+  --ol-fs-xs:           0.75rem;    /* 12px */
+  --ol-fs-sm:           0.875rem;   /* 14px */
+  --ol-fs-base:         1rem;       /* 16px */
+  --ol-fs-md:           1.125rem;   /* 18px */
+  --ol-fs-lg:           1.25rem;    /* 20px */
+  --ol-fs-xl:           1.5rem;     /* 24px */
+  --ol-fs-2xl:          2rem;       /* 32px */
+  --ol-fs-3xl:          2.5rem;     /* 40px */
+  --ol-fs-4xl:          3rem;       /* 48px */
+
+  /* ── Spacing Scale ──────────────────────────────────────────────────────── */
+  --ol-space-1:         0.25rem;    /*  4px */
+  --ol-space-2:         0.5rem;     /*  8px */
+  --ol-space-3:         0.75rem;    /* 12px */
+  --ol-space-4:         1rem;       /* 16px */
+  --ol-space-5:         1.25rem;    /* 20px */
+  --ol-space-6:         1.5rem;     /* 24px */
+  --ol-space-8:         2rem;       /* 32px */
+  --ol-space-10:        2.5rem;     /* 40px */
+  --ol-space-12:        3rem;       /* 48px */
+  --ol-space-16:        4rem;       /* 64px */
+
+  /* ── Border Radius ──────────────────────────────────────────────────────── */
+  --ol-radius-sm:       0.25rem;
+  --ol-radius-md:       0.5rem;
+  --ol-radius-lg:       0.75rem;
+  --ol-radius-xl:       1rem;
+  --ol-radius-2xl:      1.5rem;
+  --ol-radius-pill:     50rem;
+
+  /* ── Elevation / Shadows ────────────────────────────────────────────────── */
+  --ol-shadow-xs:       0 1px 2px 0 rgba(0, 0, 0, .06);
+  --ol-shadow-sm:       0 1px 3px 0 rgba(0, 0, 0, .10), 0 1px 2px -1px rgba(0, 0, 0, .06);
+  --ol-shadow-md:       0 4px 6px -1px rgba(0, 0, 0, .10), 0 2px 4px -2px rgba(0, 0, 0, .06);
+  --ol-shadow-lg:       0 10px 15px -3px rgba(0, 0, 0, .10), 0 4px 6px -4px rgba(0, 0, 0, .06);
+  --ol-shadow-xl:       0 20px 25px -5px rgba(0, 0, 0, .10), 0 8px 10px -6px rgba(0, 0, 0, .06);
+
+  /* ── Layout Dimensions ──────────────────────────────────────────────────── */
+  --ol-sidebar-width:          260px;
+  --ol-sidebar-collapsed-w:    72px;
+  --ol-navbar-height:          64px;
+  --ol-logo-min-height:        40px;   /* Brand guideline minimum             */
+  --ol-logo-clear-space:       16px;   /* Clear space = circle mark size      */
+
+  /* ── Motion ─────────────────────────────────────────────────────────────── */
+  --ol-transition-fast:  150ms ease;
+  --ol-transition-base:  250ms ease;
+  --ol-transition-slow:  400ms ease;
+}

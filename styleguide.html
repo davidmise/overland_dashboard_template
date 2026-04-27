@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style Guide — Overland Design System</title>
+  <link rel="icon" type="image/x-icon" href="image/BrandGuidline/overland_logo_favico/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="assets/css/overland-light.css">
+  <link rel="stylesheet" href="assets/css/overland-dark.css">
+  <link rel="stylesheet" href="assets/css/overland.css">
+
+  <style>
+    /* Style-guide-specific additions */
+    .sg-section { padding: 3rem 0; border-bottom: 1px solid var(--ol-card-border); }
+    .sg-section:last-child { border-bottom: none; }
+    .sg-section-title {
+      font-family: var(--ol-font-brand);
+      font-size: var(--ol-fs-xl);
+      font-weight: var(--ol-fw-black);
+      color: var(--ol-heading-color);
+      margin-bottom: .375rem;
+    }
+    .sg-section-desc { color: var(--ol-muted-text); font-size: var(--ol-fs-sm); margin-bottom: 2rem; }
+    .sg-label {
+      font-size: var(--ol-fs-xs);
+      font-weight: var(--ol-fw-bold);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ol-muted-text);
+      margin-top: .75rem;
+    }
+    .sg-swatch {
+      height: 80px;
+      border-radius: var(--ol-radius-lg);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .sg-code {
+      font-size: var(--ol-fs-xs);
+      background: var(--ol-card-border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: 'Courier New', monospace;
+    }
+    .sg-token {
+      font-family: 'Courier New', monospace;
+      font-size: var(--ol-fs-xs);
+      color: var(--ol-red);
+      background: var(--ol-red-light);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+    .sg-topbar {
+      position: sticky;
+      top: 0;
+      background: var(--ol-card-bg);
+      border-bottom: 1px solid var(--ol-card-border);
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--ol-shadow-xs);
+    }
+    [data-bs-theme="dark"] .sg-swatch { border-color: rgba(255,255,255,.06); }
+  </style>
+</head>
+<body>
+
+<!-- Style Guide Top Bar -->
+<div class="sg-topbar">
+  <div class="d-flex align-items-center gap-3">
+    <img src="image/BrandGuidline/overland_logo_digital/SVG/Logo-01.svg" alt="Overland" style="height:32px;">
+    <span style="font-family:var(--ol-font-brand);font-weight:var(--ol-fw-bold);font-size:var(--ol-fs-lg);">Design System</span>
+    <span class="ol-badge ol-badge--info ms-1">v1.0.0</span>
+  </div>
+  <div class="d-flex align-items-center gap-3">
+    <a href="index.html" class="btn btn-sm btn-outline-primary btn-icon">
+      <i class="bi bi-grid-3x3-gap"></i> Dashboard
+    </a>
+    <button id="ol-theme-toggle" class="btn btn-sm btn-outline-secondary btn-icon" aria-label="Toggle theme">
+      <i class="bi bi-moon-fill"></i> Theme
+    </button>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="container-xl py-5" style="max-width:1100px;">
+
+  <!-- Hero -->
+  <div class="mb-5 pb-4 border-bottom" style="border-color:var(--ol-card-border)!important;">
+    <h1 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-4xl);font-weight:var(--ol-fw-black);color:var(--ol-heading-color);margin-bottom:.5rem;">
+      Overland<br><span class="text-brand-red">Design System</span>
+    </h1>
+    <p style="font-size:var(--ol-fs-lg);color:var(--ol-muted-text);max-width:600px;line-height:1.7;">
+      A living style guide documenting the Overland brand tokens, components, and patterns for developers building with Bootstrap 5.
+    </p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ COLOUR SYSTEM -->
+  <section class="sg-section" id="colours" aria-label="Colour system">
+    <h2 class="sg-section-title">Colour System</h2>
+    <p class="sg-section-desc">All colours are defined as CSS custom properties in <code class="sg-code">overland-tokens.css</code> and mapped to Bootstrap semantic variables in <code class="sg-code">overland-light.css</code> / <code class="sg-code">overland-dark.css</code>.</p>
+
+    <h3 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-md);font-weight:var(--ol-fw-bold);margin-bottom:1rem;">Primary Palette</h3>
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#000000;"></div>
+        <div class="sg-label">Black</div>
+        <div class="sg-code">#000000</div>
+        <div class="sg-token">--ol-black</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#ed1c24;"></div>
+        <div class="sg-label">Red</div>
+        <div class="sg-code">#ed1c24</div>
+        <div class="sg-token">--ol-red</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#fac56e;"></div>
+        <div class="sg-label">Gold</div>
+        <div class="sg-code">#fac56e</div>
+        <div class="sg-token">--ol-gold</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#c41019;"></div>
+        <div class="sg-label">Red Dark</div>
+        <div class="sg-code">#c41019</div>
+        <div class="sg-token">--ol-red-dark</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#fde8e9;border:1px solid #f0c0c2;"></div>
+        <div class="sg-label">Red Light</div>
+        <div class="sg-code">#fde8e9</div>
+        <div class="sg-token">--ol-red-light</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#fff8ee;border:1px solid #efe0c0;"></div>
+        <div class="sg-label">Gold Light</div>
+        <div class="sg-code">#fff8ee</div>
+        <div class="sg-token">--ol-gold-light</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-md);font-weight:var(--ol-fw-bold);margin-bottom:1rem;">Secondary Palette</h3>
+    <div class="row g-3">
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#7c7b7b;"></div>
+        <div class="sg-label">Gray</div>
+        <div class="sg-code">#7c7b7b</div>
+        <div class="sg-token">--ol-gray</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#d8b478;"></div>
+        <div class="sg-label">Tan</div>
+        <div class="sg-code">#d8b478</div>
+        <div class="sg-token">--ol-tan</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#f89f1e;"></div>
+        <div class="sg-label">Orange</div>
+        <div class="sg-code">#f89f1e</div>
+        <div class="sg-token">--ol-orange</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#a0b83b;"></div>
+        <div class="sg-label">Lime</div>
+        <div class="sg-code">#a0b83b</div>
+        <div class="sg-token">--ol-lime</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#eef3d8;border:1px solid #d0de9a;"></div>
+        <div class="sg-label">Lime Light</div>
+        <div class="sg-code">#eef3d8</div>
+        <div class="sg-token">--ol-lime-light</div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="sg-swatch" style="background:#fff3e0;border:1px solid #f4d8a0;"></div>
+        <div class="sg-label">Orange Light</div>
+        <div class="sg-code">#fff3e0</div>
+        <div class="sg-token">--ol-orange-light</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TYPOGRAPHY -->
+  <section class="sg-section" id="typography" aria-label="Typography">
+    <h2 class="sg-section-title">Typography</h2>
+    <p class="sg-section-desc">Switzer (via Fontshare CDN) is the brand font for all headings. Helvetica/Arial is the system font for body and UI text.</p>
+
+    <!-- Brand font scale -->
+    <div class="ol-card mb-5">
+      <div class="ol-card__header">
+        <h3 class="ol-card__title">Brand Font — Switzer (Headings)</h3>
+      </div>
+      <div class="ol-card__body d-flex flex-column gap-4">
+        <div>
+          <div class="sg-label">H1 — 2rem / 700</div>
+          <h1 class="mb-0">Fleet Management Dashboard</h1>
+        </div>
+        <div>
+          <div class="sg-label">H2 — 1.5rem / 700</div>
+          <h2 class="mb-0">Recent Shipments</h2>
+        </div>
+        <div>
+          <div class="sg-label">H3 — 1.25rem / 700</div>
+          <h3 class="mb-0">Shipment Details</h3>
+        </div>
+        <div>
+          <div class="sg-label">H4 — 1.125rem / 700</div>
+          <h4 class="mb-0">Driver Assignment</h4>
+        </div>
+        <div>
+          <div class="sg-label">H5 — 1rem / 700</div>
+          <h5 class="mb-0">Origin Address</h5>
+        </div>
+        <div>
+          <div class="sg-label">H6 — 0.875rem / 700</div>
+          <h6 class="mb-0">Tracking Reference</h6>
+        </div>
+        <div>
+          <div class="sg-label">Display — 2.5rem / Black (900)</div>
+          <p class="mb-0" style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-3xl);font-weight:var(--ol-fw-black);color:var(--ol-heading-color);">248</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- System font scale -->
+    <div class="ol-card">
+      <div class="ol-card__header">
+        <h3 class="ol-card__title">System Font — Helvetica/Arial (Body & UI)</h3>
+      </div>
+      <div class="ol-card__body d-flex flex-column gap-3">
+        <div><div class="sg-label">Large body — 1.125rem / Regular</div>
+          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-md);">Overland provides real-time fleet visibility across your entire operations network.</p></div>
+        <div><div class="sg-label">Base body — 1rem / Regular</div>
+          <p class="mb-0" style="font-family:var(--ol-font-system);">The shipment was dispatched from Cape Town and is currently in transit along the N1 route.</p></div>
+        <div><div class="sg-label">Small — 0.875rem / Medium</div>
+          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">Estimated arrival: Apr 28, 14:00 · Driver: D. Mokoena</p></div>
+        <div><div class="sg-label">Caption / Label — 0.75rem / Bold + Uppercase</div>
+          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-xs);font-weight:var(--ol-fw-bold);text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);">Last 30 days</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ BUTTONS -->
+  <section class="sg-section" id="buttons" aria-label="Buttons">
+    <h2 class="sg-section-title">Buttons</h2>
+    <p class="sg-section-desc">All buttons inherit the system font and <code class="sg-code">--ol-radius-md</code>. Use <code class="sg-code">.btn-primary</code> for main CTAs and <code class="sg-code">.btn-outline-primary</code> for secondary actions.</p>
+
+    <div class="ol-card">
+      <div class="ol-card__body d-flex flex-column gap-5">
+
+        <!-- Filled -->
+        <div>
+          <div class="sg-label mb-3">Filled variants</div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-gold">Gold</button>
+            <button class="btn btn-dark">Dark</button>
+          </div>
+        </div>
+
+        <!-- Outlined -->
+        <div>
+          <div class="sg-label mb-3">Outlined variants</div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button class="btn btn-outline-primary">Primary</button>
+            <button class="btn btn-outline-secondary">Secondary</button>
+            <button class="btn btn-outline-success">Success</button>
+            <button class="btn btn-outline-warning">Warning</button>
+            <button class="btn btn-outline-danger">Danger</button>
+            <button class="btn btn-outline-dark">Dark</button>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div>
+          <div class="sg-label mb-3">Sizes</div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+        </div>
+
+        <!-- With icons -->
+        <div>
+          <div class="sg-label mb-3">With icons</div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button class="btn btn-primary btn-icon"><i class="bi bi-plus-lg"></i> New Shipment</button>
+            <button class="btn btn-outline-primary btn-icon"><i class="bi bi-download"></i> Export</button>
+            <button class="btn btn-success btn-icon"><i class="bi bi-check2"></i> Save</button>
+            <button class="btn btn-danger btn-icon"><i class="bi bi-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <!-- States -->
+        <div>
+          <div class="sg-label mb-3">States</div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+            <button class="btn btn-primary">
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Loading…
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ BADGES -->
+  <section class="sg-section" id="badges" aria-label="Badges and status pills">
+    <h2 class="sg-section-title">Status Badges</h2>
+    <p class="sg-section-desc">Use <code class="sg-code">.ol-badge</code> with a modifier for shipment and fleet status indicators. The dot is generated via CSS.</p>
+
+    <div class="ol-card">
+      <div class="ol-card__body">
+        <div class="sg-label mb-3">Overland status badges</div>
+        <div class="d-flex flex-wrap gap-3 mb-4">
+          <span class="ol-badge ol-badge--active">In Transit</span>
+          <span class="ol-badge ol-badge--active">Delivered</span>
+          <span class="ol-badge ol-badge--pending">Pending</span>
+          <span class="ol-badge ol-badge--info">Scheduled</span>
+          <span class="ol-badge ol-badge--critical">Delayed</span>
+          <span class="ol-badge ol-badge--inactive">Cancelled</span>
+        </div>
+        <div class="sg-label mb-3">Bootstrap badges (brand-overridden)</div>
+        <div class="d-flex flex-wrap gap-3">
+          <span class="badge bg-primary">Primary</span>
+          <span class="badge bg-success">Success</span>
+          <span class="badge bg-warning">Warning</span>
+          <span class="badge bg-info">Info</span>
+          <span class="badge bg-secondary">Secondary</span>
+          <span class="badge bg-dark">Dark</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ ALERTS -->
+  <section class="sg-section" id="alerts" aria-label="Alerts">
+    <h2 class="sg-section-title">Alerts</h2>
+    <p class="sg-section-desc">Left-bordered alerts for contextual feedback. Colours map directly to brand semantic colours.</p>
+
+    <div class="d-flex flex-column gap-3">
+      <div class="alert alert-success d-flex gap-3 align-items-start mb-0" role="alert">
+        <i class="bi bi-check-circle-fill mt-1 flex-shrink-0"></i>
+        <div><strong>Shipment delivered</strong> — OVL-2024-003 arrived at its destination on time.</div>
+      </div>
+      <div class="alert alert-info d-flex gap-3 align-items-start mb-0" role="alert">
+        <i class="bi bi-info-circle-fill mt-1 flex-shrink-0"></i>
+        <div><strong>Route update</strong> — The N3 route has a 45-minute delay due to roadworks.</div>
+      </div>
+      <div class="alert alert-warning d-flex gap-3 align-items-start mb-0" role="alert">
+        <i class="bi bi-exclamation-triangle-fill mt-1 flex-shrink-0"></i>
+        <div><strong>Maintenance due</strong> — TRK-017 is overdue for its scheduled 50,000 km service.</div>
+      </div>
+      <div class="alert alert-danger d-flex gap-3 align-items-start mb-0" role="alert">
+        <i class="bi bi-x-octagon-fill mt-1 flex-shrink-0"></i>
+        <div><strong>Shipment delayed</strong> — OVL-2024-005 is 2 hours behind schedule. Immediate action required.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ FORM CONTROLS -->
+  <section class="sg-section" id="forms" aria-label="Form controls">
+    <h2 class="sg-section-title">Form Controls</h2>
+    <p class="sg-section-desc">All inputs use <code class="sg-code">--ol-input-*</code> tokens. Focus ring uses the brand red. Validation states use lime (valid) and red (invalid).</p>
+
+    <div class="ol-card">
+      <div class="ol-card__body">
+        <div class="row g-4">
+          <!-- Text input -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">Default input</label>
+            <input type="text" class="form-control" placeholder="Type something…">
+          </div>
+          <!-- With icon -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">With icon prefix</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input type="search" class="form-control" placeholder="Search…">
+            </div>
+          </div>
+          <!-- Select -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">Select</label>
+            <select class="form-select">
+              <option>Select an option…</option>
+              <option>Cape Town → Johannesburg</option>
+              <option>Durban → Pretoria</option>
+            </select>
+          </div>
+          <!-- Textarea -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">Textarea</label>
+            <textarea class="form-control" rows="3" placeholder="Notes…"></textarea>
+          </div>
+          <!-- Valid state -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">Valid state</label>
+            <input type="text" class="form-control is-valid" value="OVL-2024-013">
+            <div class="valid-feedback d-block">Tracking reference format is correct.</div>
+          </div>
+          <!-- Invalid state -->
+          <div class="col-12 col-md-6">
+            <label class="form-label">Invalid state</label>
+            <input type="email" class="form-control is-invalid" value="not-an-email">
+            <div class="invalid-feedback d-block">Please enter a valid email address.</div>
+          </div>
+          <!-- Checkboxes & radios -->
+          <div class="col-12 col-md-6">
+            <label class="form-label d-block">Checkboxes</label>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="chk1" checked><label class="form-check-label" for="chk1">In Transit</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="chk2"><label class="form-check-label" for="chk2">Scheduled</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="chk3" disabled><label class="form-check-label" for="chk3">Disabled</label></div>
+          </div>
+          <!-- Toggle switches -->
+          <div class="col-12 col-md-6">
+            <label class="form-label d-block">Toggle Switches</label>
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="sw1" checked><label class="form-check-label" for="sw1">Email notifications</label></div>
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="sw2"><label class="form-check-label" for="sw2">Push notifications</label></div>
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="sw3" disabled><label class="form-check-label" for="sw3">Disabled</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CARDS -->
+  <section class="sg-section" id="cards" aria-label="Card components">
+    <h2 class="sg-section-title">Cards</h2>
+    <p class="sg-section-desc">Cards use <code class="sg-code">--ol-card-bg</code>, <code class="sg-code">--ol-card-border</code>, and <code class="sg-code">--ol-card-shadow</code> tokens. They adapt to light/dark themes automatically.</p>
+
+    <div class="row g-4">
+      <!-- Standard card -->
+      <div class="col-12 col-md-6">
+        <div class="ol-card h-100">
+          <div class="ol-card__header">
+            <div>
+              <h3 class="ol-card__title">Standard Card</h3>
+              <p class="ol-card__subtitle">With header, body, footer</p>
+            </div>
+            <button class="btn btn-sm btn-outline-primary">Action</button>
+          </div>
+          <div class="ol-card__body">
+            <p class="mb-0">This is the card body area. Add any content here — text, charts, tables, or other components.</p>
+          </div>
+          <div class="ol-card__footer d-flex justify-content-end gap-2">
+            <button class="btn btn-sm btn-outline-secondary">Cancel</button>
+            <button class="btn btn-sm btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Stat cards -->
+      <div class="col-12 col-md-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="ol-stat-card">
+              <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--red"><i class="bi bi-box-seam"></i></div>
+              <div class="ol-stat-card__value">248</div>
+              <div class="ol-stat-card__label">Active Shipments</div>
+              <div class="ol-stat-card__trend ol-stat-card__trend--up"><i class="bi bi-arrow-up-short"></i>+12% <span class="ol-stat-card__trend-text">vs last week</span></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="ol-stat-card ol-stat-card--lime">
+              <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--lime"><i class="bi bi-check2-circle"></i></div>
+              <div class="ol-stat-card__value">113</div>
+              <div class="ol-stat-card__label">Delivered Today</div>
+              <div class="ol-stat-card__trend ol-stat-card__trend--down"><i class="bi bi-arrow-down-short"></i>-8% <span class="ol-stat-card__trend-text">vs yesterday</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TABLE -->
+  <section class="sg-section" id="table" aria-label="Data table">
+    <h2 class="sg-section-title">Data Table</h2>
+    <p class="sg-section-desc">Add <code class="sg-code">data-sortable</code> and <code class="sg-code">data-col="N"</code> to <code class="sg-code">&lt;th&gt;</code> elements to enable client-side column sorting via <code class="sg-code">overland.js</code>.</p>
+
+    <div class="ol-card">
+      <div class="ol-card__body--flush">
+        <div class="ol-table-container">
+          <table class="ol-table" data-sortable>
+            <thead>
+              <tr>
+                <th data-col="0">Tracking # <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                <th data-col="1">Route <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                <th data-col="2">ETA <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                <th data-col="3">Status <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code class="text-brand-red">OVL-2024-001</code></td>
+                <td>Cape Town → JHB</td>
+                <td>Apr 28, 14:00</td>
+                <td><span class="ol-badge ol-badge--active">In Transit</span></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><code class="text-brand-red">OVL-2024-002</code></td>
+                <td>Durban → Pretoria</td>
+                <td>Apr 28, 16:30</td>
+                <td><span class="ol-badge ol-badge--pending">Pending</span></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><code class="text-brand-red">OVL-2024-003</code></td>
+                <td>JHB → Bloemfontein</td>
+                <td>Apr 27, 09:00</td>
+                <td><span class="ol-badge ol-badge--active">Delivered</span></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><code class="text-brand-red">OVL-2024-004</code></td>
+                <td>PE → East London</td>
+                <td>Apr 29, 08:00</td>
+                <td><span class="ol-badge ol-badge--critical">Delayed</span></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ SPACING -->
+  <section class="sg-section" id="spacing" aria-label="Spacing scale">
+    <h2 class="sg-section-title">Spacing Scale</h2>
+    <p class="sg-section-desc">All spacing uses the <code class="sg-code">--ol-space-*</code> tokens. These correspond to a 4px base grid.</p>
+
+    <div class="ol-card">
+      <div class="ol-card__body d-flex flex-wrap gap-4 align-items-end">
+        <div class="text-center">
+          <div style="width:var(--ol-space-1);height:var(--ol-space-1);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">4px</div>
+          <div class="sg-label">space-1</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-2);height:var(--ol-space-2);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">8px</div>
+          <div class="sg-label">space-2</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-4);height:var(--ol-space-4);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">16px</div>
+          <div class="sg-label">space-4</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-6);height:var(--ol-space-6);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">24px</div>
+          <div class="sg-label">space-6</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-8);height:var(--ol-space-8);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">32px</div>
+          <div class="sg-label">space-8</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-12);height:var(--ol-space-12);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">48px</div>
+          <div class="sg-label">space-12</div>
+        </div>
+        <div class="text-center">
+          <div style="width:var(--ol-space-16);height:var(--ol-space-16);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-code">64px</div>
+          <div class="sg-label">space-16</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ LOGO USAGE -->
+  <section class="sg-section" id="logos" aria-label="Logo usage">
+    <h2 class="sg-section-title">Logo Usage</h2>
+    <p class="sg-section-desc">Use the correct logo variant for each background. Never apply effects, change proportions, or place on non-approved backgrounds. Minimum height is <strong>40px</strong>.</p>
+
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div style="background:#fff;padding:2rem;border-radius:var(--ol-radius-lg);border:1px solid var(--ol-card-border);text-align:center;">
+          <img src="image/BrandGuidline/overland_logo_digital/SVG/Logo-01.svg" alt="Logo-01 — light background" style="height:40px;max-width:100%;">
+        </div>
+        <div class="sg-label">Logo-01 — Light / White background</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div style="background:var(--ol-red);padding:2rem;border-radius:var(--ol-radius-lg);text-align:center;">
+          <img src="image/BrandGuidline/overland_logo_digital/SVG/Logo-02.svg" alt="Logo-02 — red background" style="height:40px;max-width:100%;">
+        </div>
+        <div class="sg-label">Logo-02 — Red background</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div style="background:#000;padding:2rem;border-radius:var(--ol-radius-lg);text-align:center;">
+          <img src="image/BrandGuidline/overland_logo_digital/SVG/Logo-03.svg" alt="Logo-03 — dark background" style="height:40px;max-width:100%;">
+        </div>
+        <div class="sg-label">Logo-03 — Dark / Black background (sidebar)</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div style="background:var(--ol-gold);padding:2rem;border-radius:var(--ol-radius-lg);text-align:center;">
+          <img src="image/BrandGuidline/overland_logo_digital/SVG/Logo-04.svg" alt="Logo-04 — gold background" style="height:40px;max-width:100%;">
+        </div>
+        <div class="sg-label">Logo-04 — Gold background</div>
+      </div>
+    </div>
+
+    <div class="alert alert-danger mt-4 d-flex gap-3" role="alert">
+      <i class="bi bi-x-octagon-fill mt-1 flex-shrink-0"></i>
+      <div>
+        <strong>Logo Do's & Don'ts:</strong> Never rotate, skew, recolour, add drop shadows, stretch, or place the logo on a busy background. Always maintain clear space equal to the height of the circular mark on all four sides. Minimum rendered height is 40px.
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/overland.js"></script>
+
+</body>
+</html>

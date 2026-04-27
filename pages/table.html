@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shipments — Overland Fleet Management</title>
+  <link rel="icon" type="image/x-icon" href="../image/BrandGuidline/overland_logo_favico/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="../assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="../assets/css/overland-light.css">
+  <link rel="stylesheet" href="../assets/css/overland-dark.css">
+  <link rel="stylesheet" href="../assets/css/overland.css">
+</head>
+<body>
+
+<div class="ol-layout">
+
+  <!-- SIDEBAR -->
+  <nav id="ol-sidebar" class="ol-sidebar" aria-label="Main navigation">
+    <div class="ol-sidebar__logo">
+      <img src="../image/BrandGuidline/overland_logo_digital/SVG/Logo-03.svg"
+           alt="Overland" class="ol-sidebar__logo-full">
+      <img src="../image/BrandGuidline/overland_logo_favico/favicon-32x32.png"
+           alt="Overland" class="ol-sidebar__logo-mark">
+    </div>
+    <div class="ol-sidebar__nav">
+      <ul class="list-unstyled mb-0">
+        <li><span class="ol-sidebar__section-label">Overview</span></li>
+        <li class="ol-nav-item">
+          <a href="../index.html" class="ol-nav-link" data-label="Dashboard">
+            <i class="bi bi-speedometer2 ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Dashboard</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Fleet</span></li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Vehicles">
+            <i class="bi bi-truck ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Vehicles</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Maintenance">
+            <i class="bi bi-tools ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Maintenance</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Operations</span></li>
+        <li class="ol-nav-item">
+          <a href="table.html" class="ol-nav-link active" data-label="Shipments">
+            <i class="bi bi-box-seam ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Shipments</span>
+            <span class="ol-nav-link__badge">14</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Routes">
+            <i class="bi bi-map ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Routes</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Drivers">
+            <i class="bi bi-person-badge ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Drivers</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Analytics</span></li>
+        <li class="ol-nav-item">
+          <a href="#" class="ol-nav-link" data-label="Reports">
+            <i class="bi bi-bar-chart-line ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="ol-sidebar__footer">
+      <ul class="list-unstyled mb-3">
+        <li class="ol-nav-item">
+          <a href="settings.html" class="ol-nav-link" data-label="Settings">
+            <i class="bi bi-gear ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <button id="ol-sidebar-collapse-btn" class="ol-sidebar__collapse-btn" aria-label="Collapse sidebar">
+        <i class="bi bi-layout-sidebar-reverse"></i>
+        <span>Collapse</span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="ol-sidebar-backdrop" class="ol-sidebar-backdrop" role="presentation"></div>
+
+  <!-- MAIN WRAPPER -->
+  <div id="ol-main-wrapper" class="ol-main-wrapper">
+
+    <!-- TOP BAR -->
+    <header class="ol-topbar">
+      <button id="ol-mobile-toggle" class="ol-topbar__mobile-toggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="ol-topbar__search">
+        <div class="input-group">
+          <span class="input-group-text border-end-0"><i class="bi bi-search"></i></span>
+          <input type="search" class="form-control border-start-0"
+                 placeholder="Search shipments, routes, drivers…"
+                 id="global-search" aria-label="Search">
+        </div>
+      </div>
+      <div class="ol-topbar__actions">
+        <button id="ol-theme-toggle" class="ol-topbar__icon-btn" aria-label="Toggle theme">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <a href="#" class="ol-topbar__icon-btn" aria-label="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="ol-topbar__notification-dot"></span>
+        </a>
+        <div class="ol-topbar__divider"></div>
+        <div class="dropdown">
+          <button class="ol-topbar__user" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="ol-avatar">JS</div>
+            <div class="ol-topbar__user-info">
+              <span class="ol-topbar__user-name">James Smith</span>
+              <span class="ol-topbar__user-role">Fleet Manager</span>
+            </div>
+            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="ol-content" id="main-content">
+
+      <!-- Page header -->
+      <div class="ol-page-header">
+        <div class="ol-page-header__left">
+          <nav aria-label="breadcrumb" class="ol-breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shipments</li>
+            </ol>
+          </nav>
+          <h1 class="ol-page-title">Shipments</h1>
+          <p class="ol-page-subtitle">248 total shipments — 14 require attention.</p>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          <button class="btn btn-outline-primary btn-icon" id="export-btn">
+            <i class="bi bi-download"></i> Export CSV
+          </button>
+          <a href="form.html" class="btn btn-primary btn-icon">
+            <i class="bi bi-plus-lg"></i> New Shipment
+          </a>
+        </div>
+      </div>
+
+      <!-- Filters bar -->
+      <div class="ol-card mb-4">
+        <div class="ol-card__body" style="padding-top:var(--ol-space-4);padding-bottom:var(--ol-space-4);">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-4">
+              <label class="form-label">Search shipments</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="search" class="form-control" id="table-search"
+                       placeholder="Tracking #, origin, driver…"
+                       data-table-search="shipments-table">
+              </div>
+            </div>
+            <div class="col-6 col-md-2">
+              <label class="form-label" for="filter-status">Status</label>
+              <select class="form-select" id="filter-status" aria-label="Filter by status">
+                <option value="">All statuses</option>
+                <option>In Transit</option>
+                <option>Delivered</option>
+                <option>Pending</option>
+                <option>Scheduled</option>
+                <option>Delayed</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-2">
+              <label class="form-label" for="filter-date">Date range</label>
+              <input type="date" class="form-control" id="filter-date">
+            </div>
+            <div class="col-6 col-md-2">
+              <label class="form-label" for="filter-origin">Origin</label>
+              <input type="text" class="form-control" id="filter-origin" placeholder="City or region">
+            </div>
+            <div class="col-6 col-md-2 d-flex gap-2">
+              <button class="btn btn-outline-primary w-100 btn-icon">
+                <i class="bi bi-funnel"></i> Filter
+              </button>
+              <button class="btn btn-outline-secondary" title="Clear filters" aria-label="Clear filters">
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table card -->
+      <div class="ol-card">
+        <div class="ol-card__header">
+          <div>
+            <h2 class="ol-card__title">All Shipments</h2>
+            <p class="ol-card__subtitle" id="table-count">Showing 12 of 248 records</p>
+          </div>
+          <div class="d-flex gap-2">
+            <!-- Column visibility / view options could go here -->
+            <button class="btn btn-sm btn-outline-secondary btn-icon" title="Refresh">
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="ol-card__body--flush">
+          <div class="ol-table-container">
+            <table class="ol-table" id="shipments-table" data-sortable aria-label="Shipments table">
+              <thead>
+                <tr>
+                  <th style="width:40px;">
+                    <input class="form-check-input" type="checkbox" id="select-all"
+                           aria-label="Select all rows">
+                  </th>
+                  <th data-col="1">Tracking # <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="2">Origin <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="3">Destination <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="4">Driver <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="5">Vehicle <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="6">ETA <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="7">Weight (kg) <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th data-col="8">Status <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                  <th style="width:120px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row template: duplicate as needed -->
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-001</code></td>
+                  <td>Cape Town</td>
+                  <td>Johannesburg</td>
+                  <td>D. Mokoena</td>
+                  <td>TRK-042</td>
+                  <td>Apr 28, 14:00</td>
+                  <td>1 250</td>
+                  <td><span class="ol-badge ol-badge--active">In Transit</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-002</code></td>
+                  <td>Durban</td>
+                  <td>Pretoria</td>
+                  <td>S. Nkosi</td>
+                  <td>TRK-018</td>
+                  <td>Apr 28, 16:30</td>
+                  <td>840</td>
+                  <td><span class="ol-badge ol-badge--pending">Pending</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-003</code></td>
+                  <td>Johannesburg</td>
+                  <td>Bloemfontein</td>
+                  <td>T. Dlamini</td>
+                  <td>TRK-007</td>
+                  <td>Apr 27, 09:00</td>
+                  <td>2 100</td>
+                  <td><span class="ol-badge ol-badge--active">Delivered</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-004</code></td>
+                  <td>Port Elizabeth</td>
+                  <td>East London</td>
+                  <td>M. van Wyk</td>
+                  <td>TRK-031</td>
+                  <td>Apr 29, 08:00</td>
+                  <td>620</td>
+                  <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-005</code></td>
+                  <td>Pretoria</td>
+                  <td>Nelspruit</td>
+                  <td>L. Sithole</td>
+                  <td>TRK-055</td>
+                  <td>Apr 27, 18:45</td>
+                  <td>980</td>
+                  <td><span class="ol-badge ol-badge--critical">Delayed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-006</code></td>
+                  <td>George</td>
+                  <td>Cape Town</td>
+                  <td>A. Botha</td>
+                  <td>TRK-013</td>
+                  <td>Apr 28, 11:00</td>
+                  <td>350</td>
+                  <td><span class="ol-badge ol-badge--active">In Transit</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-007</code></td>
+                  <td>Kimberley</td>
+                  <td>Upington</td>
+                  <td>P. Ndlovu</td>
+                  <td>TRK-022</td>
+                  <td>Apr 29, 14:00</td>
+                  <td>1 780</td>
+                  <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-008</code></td>
+                  <td>Polokwane</td>
+                  <td>Tzaneen</td>
+                  <td>R. Baloyi</td>
+                  <td>TRK-009</td>
+                  <td>Apr 27, 15:30</td>
+                  <td>460</td>
+                  <td><span class="ol-badge ol-badge--inactive">Cancelled</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-009</code></td>
+                  <td>Rustenburg</td>
+                  <td>Mafikeng</td>
+                  <td>F. Mogale</td>
+                  <td>TRK-038</td>
+                  <td>Apr 30, 07:30</td>
+                  <td>730</td>
+                  <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-010</code></td>
+                  <td>Springs</td>
+                  <td>Vereeniging</td>
+                  <td>K. Motsepe</td>
+                  <td>TRK-047</td>
+                  <td>Apr 28, 10:15</td>
+                  <td>1 050</td>
+                  <td><span class="ol-badge ol-badge--active">In Transit</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-011</code></td>
+                  <td>Witbank</td>
+                  <td>Middelburg</td>
+                  <td>J. Pretorius</td>
+                  <td>TRK-060</td>
+                  <td>Apr 27, 12:00</td>
+                  <td>540</td>
+                  <td><span class="ol-badge ol-badge--active">Delivered</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox" aria-label="Select row"></td>
+                  <td><code class="text-brand-red fw-medium">OVL-2024-012</code></td>
+                  <td>Pietermaritzburg</td>
+                  <td>Richards Bay</td>
+                  <td>N. Zulu</td>
+                  <td>TRK-033</td>
+                  <td>Apr 29, 09:45</td>
+                  <td>1 460</td>
+                  <td><span class="ol-badge ol-badge--pending">Pending</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="form.html" class="btn btn-sm btn-outline-primary" title="View / Edit"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-sm btn-outline-danger" title="Delete"
+                              data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Table footer / pagination -->
+        <div class="ol-card__footer d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <span class="text-muted" style="font-size:var(--ol-fs-xs);">Showing 1–12 of 248</span>
+            <div class="d-flex align-items-center gap-2">
+              <label for="per-page" class="form-label mb-0" style="font-size:var(--ol-fs-xs);white-space:nowrap;">Rows per page</label>
+              <select class="form-select form-select-sm" id="per-page" style="width:80px;">
+                <option>12</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+              </select>
+            </div>
+          </div>
+          <nav aria-label="Table pagination">
+            <ul class="pagination pagination-sm mb-0">
+              <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous">&laquo;</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><span class="page-link">…</span></li>
+              <li class="page-item"><a class="page-link" href="#">21</a></li>
+              <li class="page-item"><a class="page-link" href="#" aria-label="Next">&raquo;</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div><!-- /table card -->
+
+    </main>
+  </div><!-- /ol-main-wrapper -->
+</div><!-- /ol-layout -->
+
+<!-- Delete Confirm Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">
+          <i class="bi bi-trash text-danger me-2"></i>Delete Shipment
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this shipment? This action cannot be undone.</p>
+        <div class="alert alert-danger mb-0">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          Deleting a shipment will remove all associated route and driver data.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">
+          <i class="bi bi-trash me-1"></i> Delete shipment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/overland.js"></script>
+<script>
+  /* Select all rows checkbox */
+  document.getElementById('select-all').addEventListener('change', function () {
+    document.querySelectorAll('#shipments-table tbody input[type="checkbox"]')
+      .forEach(function (cb) { cb.checked = this.checked; }, this);
+  });
+</script>
+
+</body>
+</html>

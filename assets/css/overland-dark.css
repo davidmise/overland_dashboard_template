@@ -1,0 +1,69 @@
+/* ==========================================================================
+   OVERLAND DESIGN SYSTEM — Dark Theme  (overland-dark.css)
+   Applied when <html data-bs-theme="dark"> is present.
+   ========================================================================== */
+
+[data-bs-theme="dark"] {
+
+  /* ── Bootstrap Semantic Colour Map (same hue, dark-adjusted) ───────────── */
+  --bs-primary:                var(--ol-red);
+  --bs-primary-rgb:            237, 28, 36;
+  --bs-secondary:              #8a8a8a;
+  --bs-secondary-rgb:          138, 138, 138;
+  --bs-success:                var(--ol-lime);
+  --bs-success-rgb:            160, 184, 59;
+  --bs-warning:                var(--ol-orange);
+  --bs-warning-rgb:            248, 159, 30;
+  --bs-danger:                 var(--ol-red);
+  --bs-danger-rgb:             237, 28, 36;
+  --bs-info:                   var(--ol-gold);
+  --bs-info-rgb:               250, 197, 110;
+
+  /* ── Bootstrap Body / Global ────────────────────────────────────────────── */
+  --bs-body-bg:                #121212;
+  --bs-body-color:             #e9ecef;
+  --bs-border-color:           #2c2c2c;
+  --bs-link-color:             #ff5257;
+  --bs-link-hover-color:       #ff8086;
+
+  /* ── Overland Layout — Dark Values ─────────────────────────────────────── */
+  --ol-page-bg:                #121212;
+
+  /* Sidebar — slightly lighter than page bg */
+  --ol-sidebar-bg:             #1a1a1a;
+  --ol-sidebar-text:           rgba(255, 255, 255, .62);
+  --ol-sidebar-text-active:    #ffffff;
+  --ol-sidebar-item-active-bg: var(--ol-red);
+  --ol-sidebar-item-hover-bg:  rgba(255, 255, 255, .07);
+  --ol-sidebar-section-label:  rgba(255, 255, 255, .32);
+  --ol-sidebar-border:         rgba(255, 255, 255, .08);
+
+  /* Top bar */
+  --ol-topbar-bg:              #1e1e1e;
+  --ol-topbar-border:          #2c2c2c;
+
+  /* Cards */
+  --ol-card-bg:                #1e1e1e;
+  --ol-card-border:            #2c2c2c;
+  --ol-card-shadow:            0 1px 4px 0 rgba(0, 0, 0, .5);
+
+  /* Form controls */
+  --ol-input-bg:               #2a2a2a;
+  --ol-input-border:           #3c3c3c;
+  --ol-input-focus-border:     var(--ol-red);
+  --ol-input-focus-shadow:     0 0 0 0.25rem rgba(237, 28, 36, .28);
+
+  /* Tables */
+  --ol-table-stripe-bg:        rgba(255, 255, 255, .025);
+  --ol-table-hover-bg:         rgba(255, 255, 255, .05);
+
+  /* Text */
+  --ol-muted-text:             #8a8a8a;
+  --ol-heading-color:          #f1f1f1;
+
+  /* Computed tints adjusted for dark surfaces */
+  --ol-red-light:              rgba(237, 28, 36,  .18);
+  --ol-gold-light:             rgba(250, 197, 110, .15);
+  --ol-lime-light:             rgba(160, 184, 59,  .15);
+  --ol-orange-light:           rgba(248, 159, 30,  .15);
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In — Overland Fleet Management</title>
+  <link rel="icon" type="image/x-icon" href="../image/BrandGuidline/overland_logo_favico/favicon.ico">
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Switzer — Brand Font -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+
+  <!-- Overland Design System -->
+  <link rel="stylesheet" href="../assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="../assets/css/overland-light.css">
+  <link rel="stylesheet" href="../assets/css/overland-dark.css">
+  <link rel="stylesheet" href="../assets/css/overland.css">
+</head>
+<body>
+
+<div class="ol-auth-page">
+
+  <!-- ════════════════════════════════════════════════════════
+       LEFT — Brand panel (hidden on mobile)
+       ════════════════════════════════════════════════════════ -->
+  <div class="ol-auth-brand-panel">
+    <!-- Red accent stripe at top -->
+    <div class="ol-auth-brand-panel__red-stripe"></div>
+    <!-- Decorative graphic element (organic blob) -->
+    <div class="ol-auth-brand-panel__graphic"
+         style="background-image: url('../image/BrandGuidline/graphic_element.png');"></div>
+
+    <!-- Brand content -->
+    <div class="ol-auth-brand-panel__content">
+      <img src="../image/BrandGuidline/overland_logo_digital/SVG/Logo-03.svg"
+           alt="Overland" style="height:52px; margin-bottom:2.5rem;">
+
+      <h1 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-2xl);font-weight:var(--ol-fw-black);margin-bottom:var(--ol-space-4);line-height:1.2;">
+        Fleet Management<br>Dashboard
+      </h1>
+      <p style="font-size:var(--ol-fs-sm);opacity:.75;line-height:1.7;margin-bottom:var(--ol-space-8);">
+        Real-time visibility into your entire fleet operation — shipments, routes, drivers, and vehicles — all in one place.
+      </p>
+
+      <!-- Feature bullets -->
+      <ul class="list-unstyled d-flex flex-column gap-3 text-start">
+        <li class="d-flex align-items-start gap-3">
+          <span style="width:28px;height:28px;background:rgba(250,197,110,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="bi bi-truck" style="color:var(--ol-gold);font-size:.875rem;"></i>
+          </span>
+          <div>
+            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Live Fleet Tracking</div>
+            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Real-time GPS positions for all vehicles</div>
+          </div>
+        </li>
+        <li class="d-flex align-items-start gap-3">
+          <span style="width:28px;height:28px;background:rgba(160,184,59,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="bi bi-bar-chart-line" style="color:var(--ol-lime);font-size:.875rem;"></i>
+          </span>
+          <div>
+            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Analytics & Reporting</div>
+            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Operational insights across your entire network</div>
+          </div>
+        </li>
+        <li class="d-flex align-items-start gap-3">
+          <span style="width:28px;height:28px;background:rgba(237,28,36,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="bi bi-shield-check" style="color:var(--ol-red);font-size:.875rem;"></i>
+          </span>
+          <div>
+            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Role-Based Access</div>
+            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Granular permissions for every team member</div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Brand tagline -->
+      <p style="font-size:var(--ol-fs-xs);opacity:.4;margin-top:var(--ol-space-12);letter-spacing:.06em;text-transform:uppercase;">
+        &copy; 2026 Overland Logistics &mdash; All rights reserved
+      </p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       RIGHT — Login Form
+       ════════════════════════════════════════════════════════ -->
+  <div class="ol-auth-form-panel">
+    <div class="ol-auth-card">
+
+      <!-- Mobile logo (only visible on small screens) -->
+      <div class="ol-auth-logo d-lg-none">
+        <img src="../image/BrandGuidline/overland_logo_digital/SVG/Logo-01.svg"
+             alt="Overland">
+      </div>
+
+      <h1 class="ol-auth-title">Welcome back</h1>
+      <p class="ol-auth-subtitle">Sign in to your Overland dashboard account.</p>
+
+      <!-- Alert (hidden by default, show on auth error) -->
+      <div class="alert alert-danger d-none mb-4" id="login-error" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        Invalid email address or password. Please try again.
+      </div>
+
+      <form id="login-form" novalidate>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="email" class="form-label">Email address</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input type="email" class="form-control" id="email"
+                   name="email"
+                   placeholder="you@overland.co.za"
+                   autocomplete="email"
+                   required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <label for="password" class="form-label mb-0">Password</label>
+            <a href="#" class="text-brand-red" style="font-size:var(--ol-fs-xs);">Forgot password?</a>
+          </div>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input type="password" class="form-control" id="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   autocomplete="current-password"
+                   minlength="8"
+                   required>
+            <button class="input-group-text" type="button" id="toggle-password"
+                    aria-label="Toggle password visibility" style="cursor:pointer;">
+              <i class="bi bi-eye" id="toggle-password-icon"></i>
+            </button>
+            <div class="invalid-feedback">Password must be at least 8 characters.</div>
+          </div>
+        </div>
+
+        <!-- Remember me -->
+        <div class="mb-5 d-flex justify-content-between align-items-center">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember-me" name="remember">
+            <label class="form-check-label" for="remember-me" style="font-size:var(--ol-fs-sm);">
+              Keep me signed in
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary w-100 btn-lg" id="login-submit">
+          <span id="login-spinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+          Sign In
+        </button>
+
+      </form>
+
+      <!-- Theme toggle for login page -->
+      <div class="text-center mt-5">
+        <button id="ol-theme-toggle" class="btn btn-sm btn-outline-secondary btn-icon"
+                aria-label="Toggle theme">
+          <i class="bi bi-moon-fill"></i> Toggle theme
+        </button>
+      </div>
+
+    </div><!-- /ol-auth-card -->
+  </div><!-- /ol-auth-form-panel -->
+
+</div><!-- /ol-auth-page -->
+
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Overland JS -->
+<script src="../assets/js/overland.js"></script>
+<script>
+  /* Password visibility toggle */
+  document.getElementById('toggle-password').addEventListener('click', function () {
+    var input = document.getElementById('password');
+    var icon  = document.getElementById('toggle-password-icon');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.className = 'bi bi-eye-slash';
+    } else {
+      input.type = 'password';
+      icon.className = 'bi bi-eye';
+    }
+  });
+
+  /* Form validation (Bootstrap native) */
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.classList.add('was-validated');
+    if (this.checkValidity()) {
+      /* Show loading state */
+      var btn = document.getElementById('login-submit');
+      var spinner = document.getElementById('login-spinner');
+      btn.disabled = true;
+      spinner.classList.remove('d-none');
+      /* Simulate auth — replace with real auth call */
+      setTimeout(function () {
+        window.location.href = '../index.html';
+      }, 1200);
+    }
+  });
+</script>
+
+</body>
+</html>

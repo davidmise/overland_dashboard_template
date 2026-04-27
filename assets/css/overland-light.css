@@ -1,0 +1,73 @@
+/* ==========================================================================
+   OVERLAND DESIGN SYSTEM — Light Theme  (overland-light.css)
+   Overrides Bootstrap 5.3 CSS variables for light mode.
+   Apply to :root for default light theme.
+   ========================================================================== */
+
+:root,
+[data-bs-theme="light"] {
+
+  /* ── Bootstrap Semantic Colour Map ─────────────────────────────────────── */
+  --bs-primary:                var(--ol-red);
+  --bs-primary-rgb:            237, 28, 36;
+  --bs-secondary:              var(--ol-gray);
+  --bs-secondary-rgb:          124, 123, 123;
+  --bs-success:                var(--ol-lime);
+  --bs-success-rgb:            160, 184, 59;
+  --bs-warning:                var(--ol-orange);
+  --bs-warning-rgb:            248, 159, 30;
+  --bs-danger:                 var(--ol-red);
+  --bs-danger-rgb:             237, 28, 36;
+  --bs-info:                   var(--ol-gold);
+  --bs-info-rgb:               250, 197, 110;
+  --bs-light:                  #f5f6fa;
+  --bs-dark:                   var(--ol-black);
+
+  /* ── Bootstrap Body / Global ────────────────────────────────────────────── */
+  --bs-body-bg:                #f5f6fa;
+  --bs-body-color:             #1a1a1a;
+  --bs-body-font-family:       var(--ol-font-system);
+  --bs-body-font-size:         var(--ol-fs-base);
+  --bs-border-radius:          var(--ol-radius-md);
+  --bs-border-radius-sm:       var(--ol-radius-sm);
+  --bs-border-radius-lg:       var(--ol-radius-lg);
+  --bs-border-radius-xl:       var(--ol-radius-xl);
+  --bs-border-color:           #e2e4e9;
+  --bs-link-color:             var(--ol-red);
+  --bs-link-hover-color:       var(--ol-red-dark);
+
+  /* ── Overland Layout — Light Values ────────────────────────────────────── */
+  --ol-page-bg:                #f5f6fa;
+
+  /* Sidebar */
+  --ol-sidebar-bg:             var(--ol-black);
+  --ol-sidebar-text:           rgba(255, 255, 255, .72);
+  --ol-sidebar-text-active:    #ffffff;
+  --ol-sidebar-item-active-bg: var(--ol-red);
+  --ol-sidebar-item-hover-bg:  rgba(255, 255, 255, .08);
+  --ol-sidebar-section-label:  rgba(255, 255, 255, .38);
+  --ol-sidebar-border:         rgba(255, 255, 255, .10);
+
+  /* Top bar */
+  --ol-topbar-bg:              #ffffff;
+  --ol-topbar-border:          #e2e4e9;
+
+  /* Cards */
+  --ol-card-bg:                #ffffff;
+  --ol-card-border:            #e2e4e9;
+  --ol-card-shadow:            var(--ol-shadow-sm);
+
+  /* Form controls */
+  --ol-input-bg:               #ffffff;
+  --ol-input-border:           #ced4da;
+  --ol-input-focus-border:     var(--ol-red);
+  --ol-input-focus-shadow:     0 0 0 0.25rem rgba(237, 28, 36, .18);
+
+  /* Tables */
+  --ol-table-stripe-bg:        #f9fafb;
+  --ol-table-hover-bg:         #f0f1f5;
+
+  /* Text */
+  --ol-muted-text:             #6c757d;
+  --ol-heading-color:          var(--ol-black);
+}
