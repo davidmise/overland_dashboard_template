@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routes — Overland Fleet Management</title>
+  <link rel="icon" type="image/png" href="../image/PNG/Logo-03.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@100,300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="../assets/css/overland-tokens.css">
+  <link rel="stylesheet" href="../assets/css/overland-light.css">
+  <link rel="stylesheet" href="../assets/css/overland-dark.css">
+  <link rel="stylesheet" href="../assets/css/overland.css">
+</head>
+<body>
+
+<div class="ol-layout">
+
+  <!-- SIDEBAR -->
+  <nav id="ol-sidebar" class="ol-sidebar" aria-label="Main navigation">
+    <div class="ol-sidebar__logo">
+      <img src="../image/PNG/Logo-02.png" alt="Overland" class="ol-sidebar__logo-full">
+      <img src="../image/PNG/Logo-03.png" alt="Overland" class="ol-sidebar__logo-mark">
+    </div>
+    <div class="ol-sidebar__nav">
+      <ul class="list-unstyled mb-0">
+        <li><span class="ol-sidebar__section-label">Overview</span></li>
+        <li class="ol-nav-item">
+          <a href="../index.html" class="ol-nav-link" data-label="Dashboard">
+            <i class="bi bi-speedometer2 ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Dashboard</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Fleet</span></li>
+        <li class="ol-nav-item">
+          <a href="vehicles.html" class="ol-nav-link" data-label="Vehicles">
+            <i class="bi bi-truck ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Vehicles</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="maintenance.html" class="ol-nav-link" data-label="Maintenance">
+            <i class="bi bi-tools ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Maintenance</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Operations</span></li>
+        <li class="ol-nav-item">
+          <a href="table.html" class="ol-nav-link" data-label="Shipments">
+            <i class="bi bi-box-seam ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Shipments</span>
+            <span class="ol-nav-link__badge">14</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="routes.html" class="ol-nav-link active" data-label="Routes">
+            <i class="bi bi-map ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Routes</span>
+          </a>
+        </li>
+        <li class="ol-nav-item">
+          <a href="drivers.html" class="ol-nav-link" data-label="Drivers">
+            <i class="bi bi-person-badge ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Drivers</span>
+          </a>
+        </li>
+        <li><span class="ol-sidebar__section-label">Analytics</span></li>
+        <li class="ol-nav-item">
+          <a href="reports.html" class="ol-nav-link" data-label="Reports">
+            <i class="bi bi-bar-chart-line ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="ol-sidebar__footer">
+      <ul class="list-unstyled mb-3">
+        <li class="ol-nav-item">
+          <a href="settings.html" class="ol-nav-link" data-label="Settings">
+            <i class="bi bi-gear ol-nav-link__icon"></i>
+            <span class="ol-nav-link__text">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <button id="ol-sidebar-collapse-btn" class="ol-sidebar__collapse-btn" aria-label="Collapse sidebar">
+        <i class="bi bi-layout-sidebar-reverse"></i>
+        <span>Collapse</span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="ol-sidebar-backdrop" class="ol-sidebar-backdrop" role="presentation"></div>
+
+  <div id="ol-main-wrapper" class="ol-main-wrapper">
+
+    <header class="ol-topbar">
+      <button id="ol-mobile-toggle" class="ol-topbar__mobile-toggle" aria-label="Open navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="ol-topbar__search">
+        <div class="input-group">
+          <span class="input-group-text border-end-0"><i class="bi bi-search"></i></span>
+          <input type="search" class="form-control border-start-0" placeholder="Search routes…" aria-label="Search">
+        </div>
+      </div>
+      <div class="ol-topbar__actions">
+        <button id="ol-theme-toggle" class="ol-topbar__icon-btn" aria-label="Toggle theme">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <a href="#" class="ol-topbar__icon-btn" aria-label="Notifications"><i class="bi bi-bell"></i></a>
+        <div class="ol-topbar__divider"></div>
+        <div class="dropdown">
+          <button class="ol-topbar__user" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="ol-avatar">JS</div>
+            <div class="ol-topbar__user-info">
+              <span class="ol-topbar__user-name">James Smith</span>
+              <span class="ol-topbar__user-role">Fleet Manager</span>
+            </div>
+            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="ol-content" id="main-content">
+
+      <div class="ol-page-header">
+        <div class="ol-page-header__left">
+          <nav aria-label="breadcrumb" class="ol-breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+              <li class="breadcrumb-item">Operations</li>
+              <li class="breadcrumb-item active" aria-current="page">Routes</li>
+            </ol>
+          </nav>
+          <h1 class="ol-page-title">Routes</h1>
+          <p class="ol-page-subtitle">Define and manage delivery routes across your logistics network.</p>
+        </div>
+        <div class="ol-page-header__actions">
+          <button class="btn btn-outline-secondary btn-icon">
+            <i class="bi bi-download"></i> Export
+          </button>
+          <button class="btn btn-primary btn-icon" data-bs-toggle="modal" data-bs-target="#addRouteModal">
+            <i class="bi bi-plus-lg"></i> New Route
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="row g-4 mb-6">
+        <div class="col-6 col-xl-3">
+          <div class="ol-stat-card">
+            <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--red"><i class="bi bi-map"></i></div>
+            <div class="ol-stat-card__value">28</div>
+            <div class="ol-stat-card__label">Total Routes</div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="ol-stat-card ol-stat-card--lime">
+            <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--lime"><i class="bi bi-truck-front"></i></div>
+            <div class="ol-stat-card__value">19</div>
+            <div class="ol-stat-card__label">Active Today</div>
+            <div class="ol-stat-card__trend ol-stat-card__trend--up"><i class="bi bi-arrow-up-short"></i>+3 <span class="ol-stat-card__trend-text">vs yesterday</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="ol-stat-card ol-stat-card--gold">
+            <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--gold"><i class="bi bi-speedometer"></i></div>
+            <div class="ol-stat-card__value">186 km</div>
+            <div class="ol-stat-card__label">Avg Route Distance</div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="ol-stat-card ol-stat-card--orange">
+            <div class="ol-stat-card__icon-wrap ol-stat-card__icon-wrap--orange"><i class="bi bi-clock-history"></i></div>
+            <div class="ol-stat-card__value">4h 20m</div>
+            <div class="ol-stat-card__label">Avg Transit Time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Routes list -->
+        <div class="col-12 col-xl-7">
+          <div class="ol-card">
+            <div class="ol-card__header">
+              <div>
+                <h3 class="ol-card__title">All Routes</h3>
+              </div>
+              <div class="input-group" style="max-width:220px;">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="search" class="form-control" placeholder="Search routes…" data-table-search="routes-table">
+              </div>
+            </div>
+            <div class="ol-card__body--flush">
+              <div class="ol-table-container">
+                <table class="ol-table" id="routes-table" data-sortable>
+                  <thead>
+                    <tr>
+                      <th data-col="0">Route Name <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th data-col="1">Origin <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th data-col="2">Destination <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th data-col="3">Distance <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th data-col="4">Avg Time <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th data-col="5">Status <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>RT-001</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N1 Corridor</span></td>
+                      <td>Cape Town</td>
+                      <td>Johannesburg</td>
+                      <td>1 402 km</td>
+                      <td>14h 30m</td>
+                      <td><span class="ol-badge ol-badge--active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>RT-002</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N3 Highway</span></td>
+                      <td>Johannesburg</td>
+                      <td>Durban</td>
+                      <td>570 km</td>
+                      <td>6h 00m</td>
+                      <td><span class="ol-badge ol-badge--active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>RT-003</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N14 Link</span></td>
+                      <td>Pretoria</td>
+                      <td>Johannesburg</td>
+                      <td>60 km</td>
+                      <td>1h 15m</td>
+                      <td><span class="ol-badge ol-badge--active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>RT-004</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N2 Coastal</span></td>
+                      <td>Durban</td>
+                      <td>East London</td>
+                      <td>660 km</td>
+                      <td>7h 30m</td>
+                      <td><span class="ol-badge ol-badge--pending">Delayed</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>RT-005</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N9 Midlands</span></td>
+                      <td>Port Elizabeth</td>
+                      <td>Bloemfontein</td>
+                      <td>510 km</td>
+                      <td>5h 30m</td>
+                      <td><span class="ol-badge ol-badge--active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>RT-006</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N12 Industrial</span></td>
+                      <td>Johannesburg</td>
+                      <td>Kimberley</td>
+                      <td>470 km</td>
+                      <td>5h 00m</td>
+                      <td><span class="ol-badge ol-badge--inactive">Suspended</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: route details + map placeholder -->
+        <div class="col-12 col-xl-5 d-flex flex-column gap-4">
+
+          <!-- Selected route detail card -->
+          <div class="ol-card">
+            <div class="ol-card__header">
+              <div>
+                <h3 class="ol-card__title">RT-001 — N1 Corridor</h3>
+                <p class="ol-card__subtitle">Cape Town → Johannesburg</p>
+              </div>
+              <span class="ol-badge ol-badge--active">Active</span>
+            </div>
+            <div class="ol-card__body">
+              <!-- Map placeholder -->
+              <div class="ol-chart-placeholder mb-4" style="height:200px;border-radius:var(--ol-radius-lg);">
+                <!-- TODO: Inject map (Leaflet / Google Maps) here -->
+                <i class="bi bi-map" style="font-size:2rem;opacity:.25;"></i>
+                <p style="font-size:var(--ol-fs-sm);opacity:.4;margin-top:.5rem;">Map placeholder</p>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Distance</div>
+                  <div style="font-weight:var(--ol-fw-bold);">1 402 km</div>
+                </div>
+                <div class="col-6">
+                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Avg Transit</div>
+                  <div style="font-weight:var(--ol-fw-bold);">14h 30m</div>
+                </div>
+                <div class="col-6">
+                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Active Vehicles</div>
+                  <div style="font-weight:var(--ol-fw-bold);">6</div>
+                </div>
+                <div class="col-6">
+                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Shipments Today</div>
+                  <div style="font-weight:var(--ol-fw-bold);">4</div>
+                </div>
+              </div>
+              <hr class="ol-divider">
+              <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);margin-bottom:.5rem;"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Road advisory: Toll plaza on N1 near Beaufort West — 20 min delay expected.</p>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-primary btn-icon"><i class="bi bi-pencil"></i> Edit Route</button>
+                <button class="btn btn-sm btn-outline-secondary btn-icon"><i class="bi bi-files"></i> Duplicate</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Add Route Modal -->
+<div class="modal fade" id="addRouteModal" tabindex="-1" aria-labelledby="addRouteLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addRouteLabel"><i class="bi bi-map me-2"></i>New Route</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-12">
+            <label class="form-label">Route Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="e.g. N1 Corridor">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label class="form-label">Origin <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Departure city">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label class="form-label">Destination <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Arrival city">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label class="form-label">Distance (km)</label>
+            <input type="number" class="form-control" min="0" placeholder="0">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label class="form-label">Est. Transit Time (hrs)</label>
+            <input type="number" class="form-control" min="0" step="0.5" placeholder="0">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Notes / Waypoints</label>
+            <textarea class="form-control" rows="2" placeholder="Stops, toll gates, restrictions…"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-icon"><i class="bi bi-check2"></i> Save Route</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/overland.js"></script>
+</body>
+</html>
