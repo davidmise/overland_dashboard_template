@@ -221,7 +221,8 @@ a:hover { color: var(--bs-link-hover-color); text-decoration: underline; }
 .ol-sidebar.collapsed .ol-nav-link__text,
 .ol-sidebar.collapsed .ol-nav-link__badge,
 .ol-sidebar.collapsed .ol-sidebar__section-label,
-.ol-sidebar.collapsed .ol-sidebar__collapse-btn span {
+.ol-sidebar.collapsed .ol-sidebar__collapse-btn span,
+.ol-sidebar.collapsed .ol-sidebar__variant-btn span {
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
@@ -1073,6 +1074,18 @@ a:hover { color: var(--bs-link-hover-color); text-decoration: underline; }
 .fw-black    { font-weight: var(--ol-fw-black) !important; }
 .fw-medium   { font-weight: var(--ol-fw-medium) !important; }
 
+/* Extended spacing utilities (Bootstrap 5 stops at 5 = 3rem) */
+.mb-6  { margin-bottom: 2rem !important; }
+.mt-6  { margin-top:    2rem !important; }
+.my-6  { margin-top:    2rem !important; margin-bottom: 2rem !important; }
+.ms-6  { margin-left:   2rem !important; }
+.me-6  { margin-right:  2rem !important; }
+.pb-6  { padding-bottom: 2rem !important; }
+.pt-6  { padding-top:    2rem !important; }
+.py-6  { padding-top:    2rem !important; padding-bottom: 2rem !important; }
+.px-6  { padding-left:   2rem !important; padding-right:  2rem !important; }
+.gap-6 { gap: 2rem !important; }
+
 /* Spacing helpers */
 .gap-xs  { gap: var(--ol-space-2) !important; }
 .gap-sm  { gap: var(--ol-space-3) !important; }
@@ -1156,3 +1169,310 @@ a:hover { color: var(--bs-link-hover-color); text-decoration: underline; }
 [data-bs-theme="dark"] .ol-stat-card__icon-wrap--gold   { background-color: rgba(250,197,110,.15); }
 [data-bs-theme="dark"] .ol-stat-card__icon-wrap--lime   { background-color: rgba(160,184,59,.15); }
 [data-bs-theme="dark"] .ol-stat-card__icon-wrap--orange { background-color: rgba(248,159,30,.15); }
+
+
+/* ── 27. Announcement Banner ─────────────────────────────────────────────── */
+
+.ol-announcement-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ol-space-3);
+  padding: var(--ol-space-3) var(--ol-space-6);
+  background-color: var(--ol-gold-dark);
+  color: var(--ol-black);
+  font-size: var(--ol-fs-sm);
+  font-weight: var(--ol-fw-medium);
+  min-height: 44px;
+  position: relative;
+  z-index: 1035;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  flex-shrink: 0;
+  transition: opacity var(--ol-transition-fast), max-height var(--ol-transition-base);
+}
+
+.ol-announcement-banner--warning { background-color: var(--ol-orange); color: var(--ol-black); }
+.ol-announcement-banner--danger  { background-color: var(--ol-red);    color: #ffffff; }
+.ol-announcement-banner--success { background-color: var(--ol-lime);   color: #ffffff; }
+
+.ol-announcement-banner__content {
+  display: flex;
+  align-items: center;
+  gap: var(--ol-space-3);
+  flex: 1;
+  min-width: 0;
+}
+.ol-announcement-banner__content i { flex-shrink: 0; font-size: 1rem; }
+
+.ol-announcement-banner__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(0, 0, 0, .12);
+  border-radius: var(--ol-radius-md);
+  color: inherit;
+  cursor: pointer;
+  font-size: .8rem;
+  line-height: 1;
+  transition: background-color var(--ol-transition-fast);
+}
+.ol-announcement-banner__close:hover { background: rgba(0, 0, 0, .22); }
+.ol-announcement-banner--danger .ol-announcement-banner__close,
+.ol-announcement-banner--success .ol-announcement-banner__close { background: rgba(255, 255, 255, .2); }
+.ol-announcement-banner--danger .ol-announcement-banner__close:hover,
+.ol-announcement-banner--success .ol-announcement-banner__close:hover { background: rgba(255, 255, 255, .32); }
+
+.ol-announcement-banner.dismissed { display: none; }
+
+[data-bs-theme="dark"] .ol-announcement-banner {
+  background-color: #2d2500;
+  color: var(--ol-gold);
+  border-bottom-color: rgba(250, 197, 110, .12);
+}
+[data-bs-theme="dark"] .ol-announcement-banner__close {
+  background: rgba(250, 197, 110, .14);
+  color: var(--ol-gold);
+}
+[data-bs-theme="dark"] .ol-announcement-banner__close:hover { background: rgba(250, 197, 110, .26); }
+
+
+/* ── 28. Sidebar Light Variant ───────────────────────────────────────────── */
+
+/* The extra logo images — hidden by default, shown when light variant active  */
+.ol-sidebar__logo-full--light { display: none; }
+
+/* Light variant container overrides (only applies in light theme) */
+[data-bs-theme="light"] .ol-sidebar--light {
+  background-color: var(--ol-sidebar-light-bg);
+  border-right: 1px solid var(--ol-sidebar-light-border);
+  box-shadow: var(--ol-shadow-sm);
+}
+
+/* Logo swap */
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__logo-full--dark  { display: none; }
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__logo-full--light { display: block; }
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__logo { border-bottom-color: var(--ol-sidebar-light-border); }
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__footer { border-top-color: var(--ol-sidebar-light-border); }
+
+/* Nav text + interactions */
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__section-label { color: var(--ol-sidebar-light-section-label); }
+
+[data-bs-theme="light"] .ol-sidebar--light .ol-nav-link {
+  color: var(--ol-sidebar-light-text);
+}
+[data-bs-theme="light"] .ol-sidebar--light .ol-nav-link:hover {
+  background-color: var(--ol-sidebar-light-item-hover-bg);
+  color: var(--ol-sidebar-light-text-active);
+  text-decoration: none;
+}
+[data-bs-theme="light"] .ol-sidebar--light .ol-nav-link.active {
+  background-color: var(--ol-sidebar-light-item-active-bg);
+  color: var(--ol-sidebar-light-item-active-color);
+}
+[data-bs-theme="light"] .ol-sidebar--light .ol-nav-link__badge { background-color: var(--ol-red); color: #fff; }
+
+/* Collapsed tooltip uses dark tooltip on light bg */
+[data-bs-theme="light"] .ol-sidebar--light.collapsed .ol-nav-link::after {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Scrollbar */
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__nav {
+  scrollbar-color: rgba(0, 0, 0, .12) transparent;
+}
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__nav::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .12);
+}
+
+/* Buttons */
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__collapse-btn,
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__variant-btn {
+  color: var(--ol-sidebar-light-text);
+}
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__collapse-btn:hover,
+[data-bs-theme="light"] .ol-sidebar--light .ol-sidebar__variant-btn:hover {
+  background-color: var(--ol-sidebar-light-item-hover-bg);
+  color: var(--ol-sidebar-light-text-active);
+}
+
+/* Sidebar variant toggle button */
+.ol-sidebar__variant-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--ol-space-3);
+  width: 100%;
+  padding: var(--ol-space-3);
+  background: none;
+  border: none;
+  border-radius: var(--ol-radius-md);
+  color: var(--ol-sidebar-text);
+  font-size: var(--ol-fs-sm);
+  font-weight: var(--ol-fw-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: background-color var(--ol-transition-fast), color var(--ol-transition-fast);
+  margin-bottom: var(--ol-space-2);
+}
+.ol-sidebar__variant-btn:hover {
+  background-color: var(--ol-sidebar-item-hover-bg);
+  color: var(--ol-sidebar-text-active);
+}
+.ol-sidebar__variant-btn .bi {
+  flex-shrink: 0;
+  font-size: 1.125rem;
+}
+.ol-sidebar__variant-btn span {
+  transition: opacity var(--ol-transition-base);
+}
+
+/* Collapsed state: hide label, center icon */
+.ol-sidebar.collapsed .ol-sidebar__variant-btn { justify-content: center; }
+.ol-sidebar.collapsed .ol-sidebar__variant-btn span {
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide variant toggle in dark theme (sidebar is always dark there) */
+[data-bs-theme="dark"] .ol-sidebar__variant-btn { display: none; }
+
+
+/* ── 29. Improved Auth / Login Page ──────────────────────────────────────── */
+
+/* Full-screen left visual area with floating sign-in panel (desktop) */
+.ol-auth-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ol-auth-brand-panel {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--ol-space-12);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ol-auth-brand-panel__content {
+  max-width: 440px;
+  text-align: left;
+}
+
+.ol-auth-brand-panel__graphic {
+  opacity: .22;
+}
+
+/* Theme-adaptive full-screen visual background */
+[data-bs-theme="dark"] .ol-auth-brand-panel {
+  background:
+    radial-gradient(circle at 75% 10%, rgba(237, 28, 36, .22) 0%, transparent 42%),
+    radial-gradient(circle at 10% 100%, rgba(250, 197, 110, .12) 0%, transparent 45%),
+    #090a0e;
+}
+
+[data-bs-theme="light"] .ol-auth-brand-panel {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(237, 28, 36, .32) 0%, transparent 38%),
+    radial-gradient(circle at 0% 100%, rgba(248, 159, 30, .20) 0%, transparent 42%),
+    linear-gradient(140deg, #0f1218 0%, #1a1f2b 48%, #18191f 100%);
+}
+
+[data-bs-theme="light"] .ol-auth-brand-panel__red-stripe { background-color: var(--ol-gold-dark); }
+[data-bs-theme="dark"] .ol-auth-brand-panel__red-stripe { background-color: var(--ol-red); }
+
+.ol-auth-brand-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, .05) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.ol-auth-form-panel {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  width: min(46vw, 720px);
+  margin-left: auto;
+  padding: var(--ol-space-12) clamp(1.5rem, 3vw, 2.5rem);
+  background: linear-gradient(90deg, rgba(245, 246, 250, .82) 0%, rgba(245, 246, 250, .95) 100%);
+  backdrop-filter: blur(2px);
+}
+
+[data-bs-theme="dark"] .ol-auth-form-panel {
+  background: linear-gradient(90deg, rgba(9, 10, 14, .76) 0%, rgba(9, 10, 14, .92) 100%);
+}
+
+/* Accent stripe at top of form panel */
+.ol-auth-form-panel__stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ol-red) 0%, var(--ol-gold-dark) 100%);
+  pointer-events: none;
+}
+
+/* Card styling */
+[data-bs-theme="light"] .ol-auth-card {
+  background: #ffffff;
+  border-radius: var(--ol-radius-xl);
+  padding: var(--ol-space-8);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .14), 0 2px 6px rgba(0, 0, 0, .06);
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+[data-bs-theme="dark"] .ol-auth-card {
+  background: rgba(22, 24, 30, .9);
+  border-radius: var(--ol-radius-xl);
+  padding: var(--ol-space-8);
+  border: 1px solid #2c2c2c;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .45);
+}
+
+/* Always-visible logo in form panel */
+.ol-auth-logo {
+  display: block;
+  margin-bottom: var(--ol-space-6);
+  text-align: center;
+}
+.ol-auth-logo img { height: 42px; }
+
+/* Divider on login form */
+.ol-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--ol-space-3);
+  margin: var(--ol-space-5) 0;
+  color: var(--ol-muted-text);
+  font-size: var(--ol-fs-xs);
+}
+.ol-auth-divider::before,
+.ol-auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ol-card-border);
+}
+
+@media (max-width: 991.98px) {
+  .ol-auth-form-panel {
+    width: 100%;
+    margin-left: 0;
+    backdrop-filter: none;
+    background: var(--ol-page-bg);
+  }
+}

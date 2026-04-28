@@ -1,6 +1,7 @@
 /*!
- * Overland Dashboard — overland.js v1.0.0
- * Handles: theme switching, sidebar collapse, mobile nav, active nav state
+ * Overland Dashboard — overland.js v1.1.0
+ * Handles: theme switching, sidebar collapse, sidebar variant (light/dark),
+ *          mobile nav, active nav state, announcement banner, table utilities
  * No external dependencies — vanilla JS only.
  */
 
@@ -8,10 +9,12 @@
   'use strict';
 
   /* ── Constants ──────────────────────────────────────────────────────────── */
-  var THEME_KEY   = 'overland-theme';
-  var SIDEBAR_KEY = 'overland-sidebar';
-  var LIGHT       = 'light';
-  var DARK        = 'dark';
+  var THEME_KEY           = 'overland-theme';
+  var SIDEBAR_KEY         = 'overland-sidebar';
+  var SIDEBAR_VARIANT_KEY = 'overland-sidebar-variant';
+  var BANNER_KEY          = 'overland-banner-dismissed';
+  var LIGHT               = 'light';
+  var DARK                = 'dark';
 
   /* ── Shorthand helpers ──────────────────────────────────────────────────── */
   function $  (sel) { return document.querySelector(sel); }
@@ -137,6 +140,70 @@
   }
 
   /* =========================================================================
+     SIDEBAR VARIANT (light / dark)
+     Only applies in light theme — dark theme always uses dark sidebar.
+     ========================================================================= */
+
+  /**
+   * Applies a sidebar colour variant and persists the choice.
+   * @param {string} variant  'light' | 'dark'
+   */
+  function applySidebarVariant(variant) {
+    var sidebar = $('#ol-sidebar');
+    if (!sidebar) return;
+    if (variant === LIGHT) {
+      sidebar.classList.add('ol-sidebar--light');
+    } else {
+      sidebar.classList.remove('ol-sidebar--light');
+    }
+    localStorage.setItem(SIDEBAR_VARIANT_KEY, variant);
+    syncSidebarVariantButton(variant);
+  }
+
+  /** Updates the variant toggle button icon and label. */
+  function syncSidebarVariantButton(variant) {
+    var btn = $('#ol-sidebar-variant-btn');
+    if (!btn) return;
+    var icon = btn.querySelector('i');
+    var text = btn.querySelector('span');
+    if (icon) { icon.className = variant === LIGHT ? 'bi bi-moon' : 'bi bi-sun'; }
+    if (text) { text.textContent = variant === LIGHT ? 'Dark sidebar' : 'Light sidebar'; }
+  }
+
+  /** Reads persisted sidebar variant (defaults to 'dark'). */
+  function getSidebarVariant() {
+    return localStorage.getItem(SIDEBAR_VARIANT_KEY) || DARK;
+  }
+
+  /** Toggles between light and dark sidebar variants. */
+  function toggleSidebarVariant() {
+    var sidebar = $('#ol-sidebar');
+    if (!sidebar) return;
+    var current = sidebar.classList.contains('ol-sidebar--light') ? LIGHT : DARK;
+    applySidebarVariant(current === LIGHT ? DARK : LIGHT);
+  }
+
+  /* =========================================================================
+     ANNOUNCEMENT BANNER
+     ========================================================================= */
+
+  /** Dismisses the announcement banner for the current session. */
+  function dismissBanner() {
+    var banner = $('#ol-announcement-banner');
+    if (!banner) return;
+    banner.classList.add('dismissed');
+    sessionStorage.setItem(BANNER_KEY, '1');
+  }
+
+  /** Hides the banner if it was already dismissed this session. */
+  function applyBannerState() {
+    if (sessionStorage.getItem(BANNER_KEY) === '1') {
+      var banner = $('#ol-announcement-banner');
+      if (banner) banner.classList.add('dismissed');
+    }
+  }
+
+  /* =========================================================================
      SORT TABLE
      ========================================================================= */
 
@@ -220,6 +287,29 @@
     var collapseBtn = $('#ol-sidebar-collapse-btn');
     if (collapseBtn) collapseBtn.addEventListener('click', toggleSidebar);
 
+    /* Sidebar variant (only meaningful in light theme) */
+    if (document.documentElement.getAttribute('data-bs-theme') !== DARK) {
+      applySidebarVariant(getSidebarVariant());
+    }
+    var variantBtn = $('#ol-sidebar-variant-btn');
+    if (variantBtn) variantBtn.addEventListener('click', toggleSidebarVariant);
+
+    /* Re-apply variant when theme changes */
+    var themeToggle = $('#ol-theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-bs-theme');
+        if (current === LIGHT) {
+          /* Switching to dark — remove light variant */
+          var sidebar = $('#ol-sidebar');
+          if (sidebar) sidebar.classList.remove('ol-sidebar--light');
+        } else {
+          /* Switching to light — restore saved variant */
+          applySidebarVariant(getSidebarVariant());
+        }
+      });
+    }
+
     /* Mobile sidebar */
     var mobileToggle = $('#ol-mobile-toggle');
     if (mobileToggle) mobileToggle.addEventListener('click', openMobileSidebar);
@@ -236,6 +326,11 @@
 
     /* Active nav link */
     markActiveNavLink();
+
+    /* Announcement banner */
+    applyBannerState();
+    var bannerClose = $('#ol-banner-dismiss');
+    if (bannerClose) bannerClose.addEventListener('click', dismissBanner);
 
     /* Tables */
     initSortableTables();

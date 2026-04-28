@@ -87,21 +87,25 @@
        RIGHT — Login Form
        ════════════════════════════════════════════════════════ -->
   <div class="ol-auth-form-panel">
+    <!-- Top accent stripe -->
+    <div class="ol-auth-form-panel__stripe"></div>
+
     <div class="ol-auth-card">
 
-      <!-- Mobile logo (only visible on small screens) -->
-      <div class="ol-auth-logo d-lg-none">
+      <!-- Logo — always visible -->
+      <div class="ol-auth-logo">
         <img src="../image/PNG/Logo-01.png"
-             alt="Overland">
+             alt="Overland" id="auth-logo-img">
       </div>
 
       <h1 class="ol-auth-title">Welcome back</h1>
       <p class="ol-auth-subtitle">Sign in to your Overland dashboard account.</p>
 
-      <!-- Alert (hidden by default, show on auth error) -->
-      <div class="alert alert-danger d-none mb-4" id="login-error" role="alert">
-        <i class="bi bi-exclamation-triangle me-2"></i>
-        Invalid email address or password. Please try again.
+      <!-- Alert — show on auth error -->
+      <div class="alert alert-danger alert-dismissible fade d-none mb-4" id="login-error" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <strong>Sign in failed.</strong> Invalid email or password. Please try again.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 
       <form id="login-form" novalidate>
@@ -160,7 +164,16 @@
 
       </form>
 
-      <!-- Theme toggle for login page -->
+      <!-- Divider -->
+      <div class="ol-auth-divider">or</div>
+
+      <!-- SSO placeholder -->
+      <button type="button" class="btn btn-outline-secondary w-100 btn-icon" style="font-size:var(--ol-fs-sm);">
+        <i class="bi bi-building"></i>
+        Sign in with SSO
+      </button>
+
+      <!-- Theme toggle -->
       <div class="text-center mt-5">
         <button id="ol-theme-toggle" class="btn btn-sm btn-outline-secondary btn-icon"
                 aria-label="Toggle theme">
@@ -189,6 +202,21 @@
       input.type = 'password';
       icon.className = 'bi bi-eye';
     }
+  });
+
+  /* Swap auth logo when theme changes (dark → white logo, light → black logo) */
+  function syncAuthLogo() {
+    var img   = document.getElementById('auth-logo-img');
+    var theme = document.documentElement.getAttribute('data-bs-theme');
+    if (!img) return;
+    img.src = (theme === 'dark')
+      ? '../image/PNG/Logo-02.png'   /* white wordmark on dark bg */
+      : '../image/PNG/Logo-01.png';  /* black wordmark on light bg */
+  }
+  /* Run on load and observe theme attribute changes */
+  syncAuthLogo();
+  new MutationObserver(syncAuthLogo).observe(document.documentElement, {
+    attributes: true, attributeFilter: ['data-bs-theme']
   });
 
   /* Form validation (Bootstrap native) */

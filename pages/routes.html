@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
@@ -21,7 +21,8 @@
   <!-- SIDEBAR -->
   <nav id="ol-sidebar" class="ol-sidebar" aria-label="Main navigation">
     <div class="ol-sidebar__logo">
-      <img src="../image/PNG/Logo-02.png" alt="Overland" class="ol-sidebar__logo-full">
+      <img src="../image/PNG/Logo-02.png" alt="Overland" class="ol-sidebar__logo-full ol-sidebar__logo-full--dark">
+      <img src="../image/PNG/Logo-01.png" alt="Overland" class="ol-sidebar__logo-full ol-sidebar__logo-full--light">
       <img src="../image/PNG/Logo-03.png" alt="Overland" class="ol-sidebar__logo-mark">
     </div>
     <div class="ol-sidebar__nav">
@@ -84,7 +85,10 @@
           </a>
         </li>
       </ul>
-      <button id="ol-sidebar-collapse-btn" class="ol-sidebar__collapse-btn" aria-label="Collapse sidebar">
+      <button id="ol-sidebar-variant-btn" class="ol-sidebar__variant-btn" aria-label="Toggle sidebar style">
+        <i class="bi bi-sun"></i>
+        <span>Light sidebar</span>
+      </button>      <button id="ol-sidebar-collapse-btn" class="ol-sidebar__collapse-btn" aria-label="Collapse sidebar">
         <i class="bi bi-layout-sidebar-reverse"></i>
         <span>Collapse</span>
       </button>
@@ -95,7 +99,17 @@
 
   <div id="ol-main-wrapper" class="ol-main-wrapper">
 
-    <header class="ol-topbar">
+        <!-- Announcement Banner -->
+    <div id="ol-announcement-banner" class="ol-announcement-banner ol-announcement-banner--info" role="status" aria-live="polite">
+      <div class="ol-announcement-banner__content">
+        <i class="bi bi-tools"></i>
+        <span><strong>Scheduled Maintenance:</strong> System will be offline Sunday 28 Apr, 02:00&#8211;04:00 SAST. Save any open work beforehand.</span>
+      </div>
+      <button type="button" class="ol-announcement-banner__close" id="ol-banner-dismiss" aria-label="Dismiss announcement">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+<header class="ol-topbar">
       <button id="ol-mobile-toggle" class="ol-topbar__mobile-toggle" aria-label="Open navigation">
         <i class="bi bi-list"></i>
       </button>
