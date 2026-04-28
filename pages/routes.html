@@ -132,7 +132,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
@@ -209,7 +209,7 @@
               <div>
                 <h3 class="ol-card__title">All Routes</h3>
               </div>
-              <div class="input-group" style="max-width:220px;">
+              <div class="input-group ol-input-group--220">
                 <span class="input-group-text"><i class="bi bi-search"></i></span>
                 <input type="search" class="form-control" placeholder="Search routes…" data-table-search="routes-table">
               </div>
@@ -230,58 +230,58 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><strong>RT-001</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N1 Corridor</span></td>
+                      <td><strong>RT-001</strong><br><span class="ol-text-xs-muted">N1 Corridor</span></td>
                       <td>Cape Town</td>
                       <td>Johannesburg</td>
                       <td>1 402 km</td>
                       <td>14h 30m</td>
                       <td><span class="ol-badge ol-badge--active">Active</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                     <tr>
-                      <td><strong>RT-002</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N3 Highway</span></td>
+                      <td><strong>RT-002</strong><br><span class="ol-text-xs-muted">N3 Highway</span></td>
                       <td>Johannesburg</td>
                       <td>Durban</td>
                       <td>570 km</td>
                       <td>6h 00m</td>
                       <td><span class="ol-badge ol-badge--active">Active</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                     <tr>
-                      <td><strong>RT-003</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N14 Link</span></td>
+                      <td><strong>RT-003</strong><br><span class="ol-text-xs-muted">N14 Link</span></td>
                       <td>Pretoria</td>
                       <td>Johannesburg</td>
                       <td>60 km</td>
                       <td>1h 15m</td>
                       <td><span class="ol-badge ol-badge--active">Active</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                     <tr>
-                      <td><strong>RT-004</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N2 Coastal</span></td>
+                      <td><strong>RT-004</strong><br><span class="ol-text-xs-muted">N2 Coastal</span></td>
                       <td>Durban</td>
                       <td>East London</td>
                       <td>660 km</td>
                       <td>7h 30m</td>
                       <td><span class="ol-badge ol-badge--pending">Delayed</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                     <tr>
-                      <td><strong>RT-005</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N9 Midlands</span></td>
+                      <td><strong>RT-005</strong><br><span class="ol-text-xs-muted">N9 Midlands</span></td>
                       <td>Port Elizabeth</td>
                       <td>Bloemfontein</td>
                       <td>510 km</td>
                       <td>5h 30m</td>
                       <td><span class="ol-badge ol-badge--active">Active</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                     <tr>
-                      <td><strong>RT-006</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">N12 Industrial</span></td>
+                      <td><strong>RT-006</strong><br><span class="ol-text-xs-muted">N12 Industrial</span></td>
                       <td>Johannesburg</td>
                       <td>Kimberley</td>
                       <td>470 km</td>
                       <td>5h 00m</td>
                       <td><span class="ol-badge ol-badge--inactive">Suspended</span></td>
-                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                      <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit route" aria-label="Edit route"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete route" aria-label="Delete route"><i class="bi bi-trash"></i></button></div></td>
                     </tr>
                   </tbody>
                 </table>
@@ -304,32 +304,32 @@
             </div>
             <div class="ol-card__body">
               <!-- Map placeholder -->
-              <div class="ol-chart-placeholder mb-4" style="height:200px;border-radius:var(--ol-radius-lg);">
+              <div class="ol-chart-placeholder ol-chart-placeholder--200 mb-4">
                 <!-- TODO: Inject map (Leaflet / Google Maps) here -->
-                <i class="bi bi-map" style="font-size:2rem;opacity:.25;"></i>
-                <p style="font-size:var(--ol-fs-sm);opacity:.4;margin-top:.5rem;">Map placeholder</p>
+                <i class="bi bi-map ol-map-placeholder-icon"></i>
+                <p class="ol-map-placeholder-copy">Map placeholder</p>
               </div>
 
               <div class="row g-3">
                 <div class="col-6">
-                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Distance</div>
-                  <div style="font-weight:var(--ol-fw-bold);">1 402 km</div>
+                  <div class="ol-metric-label">Distance</div>
+                  <div class="ol-metric-value">1 402 km</div>
                 </div>
                 <div class="col-6">
-                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Avg Transit</div>
-                  <div style="font-weight:var(--ol-fw-bold);">14h 30m</div>
+                  <div class="ol-metric-label">Avg Transit</div>
+                  <div class="ol-metric-value">14h 30m</div>
                 </div>
                 <div class="col-6">
-                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Active Vehicles</div>
-                  <div style="font-weight:var(--ol-fw-bold);">6</div>
+                  <div class="ol-metric-label">Active Vehicles</div>
+                  <div class="ol-metric-value">6</div>
                 </div>
                 <div class="col-6">
-                  <div class="sg-label" style="font-size:var(--ol-fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);margin-bottom:.25rem;">Shipments Today</div>
-                  <div style="font-weight:var(--ol-fw-bold);">4</div>
+                  <div class="ol-metric-label">Shipments Today</div>
+                  <div class="ol-metric-value">4</div>
                 </div>
               </div>
               <hr class="ol-divider">
-              <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);margin-bottom:.5rem;"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Road advisory: Toll plaza on N1 near Beaufort West — 20 min delay expected.</p>
+              <p class="ol-advisory-copy"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Road advisory: Toll plaza on N1 near Beaufort West — 20 min delay expected.</p>
               <div class="d-flex gap-2">
                 <button class="btn btn-sm btn-primary btn-icon"><i class="bi bi-pencil"></i> Edit Route</button>
                 <button class="btn btn-sm btn-outline-secondary btn-icon"><i class="bi bi-files"></i> Duplicate</button>

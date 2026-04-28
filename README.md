@@ -1,6 +1,43 @@
-# Overland Fleet Management — Dashboard Template
+﻿# Overland Fleet Management — Dashboard Template
 
-A production-ready Bootstrap 5 dashboard template built on the Overland brand design system. Zero build step — pure CDN + static files. Drop it into any project.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![No Build Step](https://img.shields.io/badge/Build%20Step-None-brightgreen?style=flat)
+![Version](https://img.shields.io/badge/Version-1.0.0-ed1c24?style=flat)
+
+A production-ready Bootstrap 5 dashboard template built on the Overland brand design system. Zero build step — pure CDN + static files. Drop it into any project and open in a browser.
+
+> **Prepared by:** David Mushi, Senior Software Developer — IT Department, Overland Logistics
+
+---
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [File Structure](#file-structure)
+- [Pages Overview](#pages-overview)
+- [CSS Architecture](#css-architecture)
+- [Design Token Reference](#design-token-reference)
+  - [Brand Colours](#brand-colours)
+  - [Typography](#typography)
+  - [Spacing](#spacing-4px-base-grid)
+  - [Layout](#layout)
+- [Logo Usage Guide](#logo-usage-guide)
+- [Theme Switching](#theme-switching)
+- [Layout System](#layout-system)
+- [Key Component Classes](#key-component-classes)
+  - [Cards](#cards)
+  - [KPI Stat Cards](#kpi-stat-cards)
+  - [Status Badges](#status-badges)
+  - [Tables](#tables)
+  - [Chart Placeholder](#chart-placeholder)
+- [Adding a New Page](#adding-a-new-page)
+- [CDN Dependencies](#cdn-dependencies)
+- [Do's and Don'ts](#dos-and-donts)
+- [Browser Support](#browser-support)
+- [Author and Credits](#author-and-credits)
 
 ---
 
@@ -29,10 +66,15 @@ Overland Dasboard Template/
 ├── README.md                       # This file
 │
 ├── pages/
-│   ├── login.html                  # Authentication page
-│   ├── table.html                  # Shipments data table
+│   ├── login.html                  # Authentication — two-panel sign-in page
+│   ├── vehicles.html               # Fleet inventory — vehicle list and status
+│   ├── maintenance.html            # Maintenance schedule and service history
+│   ├── table.html                  # Shipments — full data table with sort & search
+│   ├── routes.html                 # Route management and planning
+│   ├── drivers.html                # Driver roster and management
+│   ├── reports.html                # Analytics, KPIs, and reporting
 │   ├── form.html                   # New / edit shipment form
-│   ├── settings.html               # Account & preference settings
+│   ├── settings.html               # Account and preference settings
 │   └── 404.html                    # Branded error page
 │
 ├── assets/
@@ -45,21 +87,61 @@ Overland Dasboard Template/
 │       └── overland.js             # Theme toggle, sidebar, table sort/search
 │
 └── image/
-    └── BrandGuidline/
-        ├── overland_logo_digital/  # Full wordmark SVGs, EPS, PNG, JPG
-        │   └── SVG/
-        │       ├── Logo-01.svg     # Light / white background
-        │       ├── Logo-02.svg     # Red background
-        │       ├── Logo-03.svg     # Dark / black background (used in sidebar)
-        │       └── Logo-04.svg     # Gold background
-        └── overland_logo_favico/   # Favicon files (16px, 32px, .ico)
+    └── PNG/
+        ├── Logo-01.png             # Light / white background variant
+        ├── Logo-02.png             # Overland red background variant
+        ├── Logo-03.png             # Dark / black background (sidebar, favicon)
+        ├── Logo-04.png             # Gold background variant
+        └── Logo-05 to Logo-08.png  # Additional brand mark variants
+```
+
+---
+
+## Pages Overview
+
+The template ships with **11 HTML pages** (entry point + 10 inner pages) covering the full fleet management workflow.
+
+| File | Nav Section | Type | Description |
+|------|-------------|------|-------------|
+| `index.html` | Overview | Dashboard | KPI cards, delivery volume chart, fleet status donut, recent shipments table, activity feed, alerts |
+| `pages/vehicles.html` | Fleet | List view | Vehicle inventory with status indicators (Active, In Maintenance, Idle) |
+| `pages/maintenance.html` | Fleet | Schedule | Service history, upcoming maintenance records, vehicle condition tracking |
+| `pages/table.html` | Operations | Data table | Full shipments table with column sorting, search, status badges, and pagination |
+| `pages/routes.html` | Operations | List view | Route management, planning, and optimisation |
+| `pages/drivers.html` | Operations | List view | Driver roster, licence details, assignment status, searchable table |
+| `pages/reports.html` | Analytics | Reports | Fleet analytics, KPI summaries, and exportable report views |
+| `pages/form.html` | Operations | Form | Multi-column new/edit shipment form with fieldsets and validation feedback |
+| `pages/settings.html` | Footer | Settings | Tab-based settings: Profile, Notifications, Appearance, Security |
+| `pages/login.html` | — | Auth | Split-screen login with brand panel, email/password form, and error state |
+| `pages/404.html` | — | Error | Branded 404 page with quick-navigation links back to core sections |
+
+### Dashboard (`index.html`) in Detail
+
+The main entry point provides a full fleet snapshot:
+
+- **Announcement banner** — Dismissible info strip for system notices (persisted in `sessionStorage`)
+- **KPI stat cards** — Active Shipments · Total Vehicles · Drivers On Route · Deliveries Today, each with trend indicator
+- **Delivery Volume chart** — 30-day / 7-day tab toggle; chart placeholder ready for Chart.js or ApexCharts
+- **Fleet Status donut** — Active (48) · In Maintenance (11) · Idle (5) with colour-coded legend
+- **Recent Shipments table** — Latest 8 records, sortable, with status badges and View actions
+- **Recent Activity feed** — Timestamped event log (deliveries, service alerts, onboarding, cancellations)
+- **Alerts panel** — Danger / Warning / Info alert cards for critical shipment delays and service notices
+
+### Sidebar Navigation Structure
+
+```
+Overview   ->  Dashboard
+Fleet      ->  Vehicles  |  Maintenance
+Operations ->  Shipments (badge: 14)  |  Routes  |  Drivers
+Analytics  ->  Reports
+Footer     ->  Settings
 ```
 
 ---
 
 ## CSS Architecture
 
-The CSS is split into four files that must be loaded **in order**:
+The CSS is split into four files that **must be loaded in order**:
 
 ```html
 <link rel="stylesheet" href="assets/css/overland-tokens.css">   <!-- 1. Tokens -->
@@ -71,7 +153,7 @@ The CSS is split into four files that must be loaded **in order**:
 | File | Purpose |
 |------|---------|
 | `overland-tokens.css` | Single source of truth — all `--ol-*` custom properties |
-| `overland-light.css` | Maps tokens to `--bs-*` vars for `:root,[data-bs-theme="light"]` |
+| `overland-light.css` | Maps tokens to `--bs-*` vars for `:root, [data-bs-theme="light"]` |
 | `overland-dark.css` | Overrides `--ol-*` and `--bs-*` under `[data-bs-theme="dark"]` |
 | `overland.css` | All component classes, layout system, responsive rules |
 
@@ -150,10 +232,10 @@ The CSS is split into four files that must be loaded **in order**:
 
 | File | Use on | Never use on |
 |------|--------|-------------|
-| `Logo-01.svg` | White / light backgrounds | Dark, red, or gold backgrounds |
-| `Logo-02.svg` | Overland red (`#ed1c24`) background | Any other colour |
-| `Logo-03.svg` | Black / dark backgrounds (sidebar) | Light or coloured backgrounds |
-| `Logo-04.svg` | Gold (`#fac56e`) background | Any other colour |
+| `Logo-01.png` | White / light backgrounds | Dark, red, or gold backgrounds |
+| `Logo-02.png` | Overland red (`#ed1c24`) background | Any other colour |
+| `Logo-03.png` | Black / dark backgrounds (sidebar, favicon) | Light or coloured backgrounds |
+| `Logo-04.png` | Gold (`#fac56e`) background | Any other colour |
 
 ### Rules
 
@@ -161,7 +243,7 @@ The CSS is split into four files that must be loaded **in order**:
 - **Clear space**: On all four sides, maintain a gap equal to the height of the circular mark portion of the logo.
 - **No modifications**: Never rotate, skew, recolour, add drop shadows, add strokes, or stretch the logo.
 - **Backgrounds**: Only approved solid backgrounds. Never place on a busy photo without an opaque backing.
-- **Favicon**: Use `overland_logo_favico/favicon-32x32.png` at 32px or smaller (icon-only mark).
+- **Favicon**: Use `Logo-03.png` at 32px or smaller for the browser tab icon.
 
 ---
 
@@ -212,6 +294,10 @@ The theme toggle button must have `id="ol-theme-toggle"`:
 </button>
 ```
 
+### Sidebar Variant
+
+In light theme, the sidebar can switch between its default dark style and a light variant. The variant toggle must have `id="ol-sidebar-variant-btn"`. Preference is stored in `localStorage` as `overland-sidebar-variant`.
+
 ---
 
 ## Layout System
@@ -224,14 +310,14 @@ The theme toggle button must have `id="ol-theme-toggle"`:
   <div class="ol-sidebar-backdrop" id="ol-sidebar-backdrop"></div>
   <div class="ol-main-wrapper" id="ol-main-wrapper">
     <header class="ol-topbar">...</header>
-    <main class="ol-content">...</main>
+    <main class="ol-content" id="main-content">...</main>
   </div>
 </div>
 ```
 
 ### Sidebar Collapse
 
-The sidebar collapses to `72px` icon-only mode. State is persisted in `localStorage` as `overland-sidebar`:
+The sidebar collapses to `72px` icon-only mode on desktop. State is persisted in `localStorage` as `overland-sidebar`:
 
 ```js
 // Collapse programmatically
@@ -244,20 +330,27 @@ The collapse button must have `id="ol-sidebar-collapse-btn"`.
 
 ### Mobile Navigation
 
-On viewports below 992px, the sidebar becomes an offcanvas. The mobile toggle button must have `id="ol-mobile-toggle"`. A backdrop (`id="ol-sidebar-backdrop"`) is shown when the sidebar is open.
+On viewports below 992px, the sidebar becomes an offcanvas drawer. The mobile toggle button must have `id="ol-mobile-toggle"`. A backdrop (`id="ol-sidebar-backdrop"`) is shown when the sidebar is open.
 
----
+### Announcement Banner
 
-## Page Templates
+A dismissible info strip sits above the topbar for system-wide notices:
 
-| File | Type | Description |
-|------|------|-------------|
-| `index.html` | Dashboard | KPI cards, chart placeholders, table, activity feed |
-| `pages/table.html` | Data table | Full CRUD table with search, filter, sort, pagination |
-| `pages/form.html` | Form | Multi-column form with fieldsets and validation |
-| `pages/settings.html` | Settings | Tab-based settings (Profile, Notifications, Appearance, Security) |
-| `pages/login.html` | Auth | Two-panel login page |
-| `pages/404.html` | Error | Branded error page |
+```html
+<div id="ol-announcement-banner" class="ol-announcement-banner ol-announcement-banner--info"
+     role="status" aria-live="polite">
+  <div class="ol-announcement-banner__content">
+    <i class="bi bi-tools"></i>
+    <span><strong>Notice:</strong> Your message here.</span>
+  </div>
+  <button type="button" class="ol-announcement-banner__close"
+          id="ol-banner-dismiss" aria-label="Dismiss announcement">
+    <i class="bi bi-x-lg"></i>
+  </button>
+</div>
+```
+
+Dismissed state is stored in `sessionStorage` under `overland-banner-dismissed` and resets on each new browser session.
 
 ---
 
@@ -276,53 +369,68 @@ On viewports below 992px, the sidebar becomes an offcanvas. The mobile toggle bu
 </div>
 ```
 
-For flush content (tables, charts touching card edges): `ol-card__body--flush`
+For flush content (tables or charts touching card edges) use `ol-card__body--flush` on the body div.
 
 ### KPI Stat Cards
 
 ```html
 <div class="ol-stat-card">                          <!-- default red accent -->
-<div class="ol-stat-card ol-stat-card--lime">       <!-- lime accent -->
+<div class="ol-stat-card ol-stat-card--lime">       <!-- lime / success accent -->
 <div class="ol-stat-card ol-stat-card--gold">       <!-- gold accent -->
-<div class="ol-stat-card ol-stat-card--orange">     <!-- orange accent -->
+<div class="ol-stat-card ol-stat-card--orange">     <!-- orange / warning accent -->
+```
+
+Trend indicators inside a stat card:
+
+```html
+<div class="ol-stat-card__trend ol-stat-card__trend--up">
+  <i class="bi bi-arrow-up-short"></i> +12%
+  <span class="ol-stat-card__trend-text ms-1">vs last week</span>
+</div>
+
+<!-- Also available: ol-stat-card__trend--down  |  ol-stat-card__trend--neutral -->
 ```
 
 ### Status Badges
 
 ```html
 <span class="ol-badge ol-badge--active">In Transit</span>
+<span class="ol-badge ol-badge--active">Delivered</span>
 <span class="ol-badge ol-badge--pending">Pending</span>
-<span class="ol-badge ol-badge--inactive">Cancelled</span>
-<span class="ol-badge ol-badge--critical">Delayed</span>
 <span class="ol-badge ol-badge--info">Scheduled</span>
+<span class="ol-badge ol-badge--critical">Delayed</span>
+<span class="ol-badge ol-badge--inactive">Cancelled</span>
 ```
 
 ### Tables
 
 ```html
-<table class="ol-table" data-sortable>
+<table class="ol-table" data-sortable id="my-table">
   <thead>
     <tr>
       <th data-col="0">Column A <i class="bi bi-arrow-down-up sort-icon"></i></th>
+      <th data-col="1">Column B <i class="bi bi-arrow-down-up sort-icon"></i></th>
     </tr>
   </thead>
   <tbody>...</tbody>
 </table>
 ```
 
-Table search (binds to a table by ID):
+Bind a search input to a table by matching the `id`:
 
 ```html
-<input type="search" data-table-search="my-table-id" placeholder="Search…">
+<input type="search" data-table-search="my-table" placeholder="Search...">
 ```
 
 ### Chart Placeholder
 
-Replace with Chart.js, ApexCharts, or another charting library:
+Replace with Chart.js, ApexCharts, or any other library:
 
 ```html
-<div class="ol-chart-placeholder" style="height:280px;">
+<div class="ol-chart-placeholder" style="height:280px;" aria-label="Chart placeholder">
   <!-- TODO: Inject chart instance here -->
+  <!-- Chart.js    -> https://www.chartjs.org/ -->
+  <!-- ApexCharts  -> https://apexcharts.com/  -->
 </div>
 ```
 
@@ -331,17 +439,17 @@ Replace with Chart.js, ApexCharts, or another charting library:
 ## Adding a New Page
 
 1. Copy the nearest matching template from `pages/`.
-2. Update `<title>` and breadcrumb.
-3. Set the correct `<a class="ol-nav-link active">` item in the sidebar.
-4. Adjust `src`/`href` asset paths for your page depth (`../assets/` for pages in `pages/`).
-5. Add your content inside `<main class="ol-content">`.
+2. Update `<title>` and the breadcrumb `<ol>`.
+3. Set `class="ol-nav-link active"` on the correct sidebar link.
+4. Adjust asset paths — pages inside `pages/` must use `../assets/` and `../image/`.
+5. Add your content inside `<main class="ol-content" id="main-content">`.
 
 ---
 
 ## CDN Dependencies
 
-| Library | Version | URL |
-|---------|---------|-----|
+| Library | Version | CDN URL |
+|---------|---------|---------|
 | Bootstrap CSS | 5.3.3 | `https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css` |
 | Bootstrap JS | 5.3.3 | `https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js` |
 | Bootstrap Icons | 1.11.3 | `https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css` |
@@ -351,27 +459,39 @@ No npm, no bundler, no build step required.
 
 ---
 
-## Do's & Don'ts
+## Do's and Don'ts
 
-| ✅ Do | ❌ Don't |
-|-------|---------|
+| Do | Don't |
+|----|-------|
 | Use `--ol-*` tokens for all custom colour values | Hard-code hex values in component CSS |
-| Use `Logo-03.svg` in the dark sidebar | Use `Logo-01.svg` (light) on dark backgrounds |
-| Keep `--ol-font-brand` (Switzer) for headings | Use Switzer for body/label text |
-| Use `.ol-badge--critical` for errors/delays | Create custom badge classes |
-| Add chart placeholders with `.ol-chart-placeholder` | Leave empty `<div>` without comment |
+| Use `Logo-03.png` in the dark sidebar and as favicon | Use `Logo-01.png` (light) on dark backgrounds |
+| Keep `--ol-font-brand` (Switzer) for headings | Use Switzer for body or label text |
+| Use `.ol-badge--critical` for errors/delays | Create custom one-off badge classes |
+| Add chart placeholders with `.ol-chart-placeholder` | Leave an empty `<div>` without a comment |
 | Use `data-bs-theme` attribute for theme switching | Toggle theme via class names |
 | Maintain 40px minimum logo height | Render logos below 40px |
-| Preserve clear space around the logo | Crowd the logo with other elements |
+| Preserve clear space around the logo | Crowd the logo with adjacent elements |
+| Copy an existing page template for new pages | Build new pages from scratch |
 
 ---
 
 ## Browser Support
 
-All modern browsers (Chrome, Firefox, Safari, Edge). Bootstrap 5 does not support IE11.
+All modern browsers (Chrome, Firefox, Safari, Edge — current and prior major version). Bootstrap 5 does not support Internet Explorer 11.
+
+---
+
+## Author and Credits
+
+| Field | Detail |
+|-------|--------|
+| **Prepared by** | David Mushi |
+| **Title** | Senior Software Developer |
+| **Department** | IT Department |
+| **Organisation** | Overland Logistics |
+| **Version** | 1.0.0 |
+| **Date** | April 2026 |
 
 ---
 
 *Overland Fleet Management Design System — v1.0.0*
-#   o v e r l a n d _ d a s h b o a r d _ t e m p l a t e  
- 

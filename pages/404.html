@@ -18,26 +18,25 @@
 
 <div class="ol-error-page">
   <!-- Decorative brand graphic -->
-  <div class="ol-error-page__graphic"
-       style="background-image: url('../image/graphic_element.png');"></div>
+  <div class="ol-error-page__graphic"></div>
 
   <!-- Logo -->
-  <a href="../index.html" style="position:relative;z-index:1;margin-bottom:var(--ol-space-8);display:block;">
+  <a href="../index.html" class="ol-layered ol-error-logo-link">
     <img src="../image/PNG/Logo-01.png"
-         alt="Overland" style="height:40px;">
+         alt="Overland" class="ol-logo-h40">
   </a>
 
   <!-- 404 code -->
-  <p class="ol-error-code" style="position:relative;z-index:1;" aria-hidden="true">404</p>
+  <p class="ol-error-code ol-layered" aria-hidden="true">404</p>
 
   <!-- Title & message -->
-  <h1 class="ol-error-title" style="position:relative;z-index:1;">Route Not Found</h1>
-  <p class="ol-error-message" style="position:relative;z-index:1;">
+  <h1 class="ol-error-title ol-layered">Route Not Found</h1>
+  <p class="ol-error-message ol-layered">
     Looks like this route doesn't exist in our system. The page you were looking for may have been moved, deleted, or the URL may be incorrect.
   </p>
 
   <!-- Actions -->
-  <div class="d-flex gap-3 justify-content-center flex-wrap" style="position:relative;z-index:1;">
+  <div class="d-flex gap-3 justify-content-center flex-wrap ol-error-actions">
     <a href="../index.html" class="btn btn-primary btn-lg btn-icon">
       <i class="bi bi-speedometer2"></i> Back to Dashboard
     </a>
@@ -47,8 +46,8 @@
   </div>
 
   <!-- Quick links -->
-  <div style="position:relative;z-index:1;margin-top:var(--ol-space-10);">
-    <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);margin-bottom:var(--ol-space-3);">
+  <div class="ol-error-quick-links">
+    <p class="ol-error-quick-links-copy">
       Or try one of these:
     </p>
     <div class="d-flex gap-3 flex-wrap justify-content-center">
@@ -65,12 +64,12 @@
   </div>
 
   <!-- Footer -->
-  <p style="position:relative;z-index:1;font-size:var(--ol-fs-xs);color:var(--ol-muted-text);margin-top:var(--ol-space-12);">
+  <p class="ol-error-footer">
     &copy; 2026 Overland Logistics &mdash; All rights reserved
   </p>
 
   <!-- Theme toggle -->
-  <div style="position:absolute;top:var(--ol-space-4);right:var(--ol-space-6);z-index:1;">
+  <div class="ol-error-theme-toggle">
     <button id="ol-theme-toggle" class="ol-topbar__icon-btn" aria-label="Toggle theme">
       <i class="bi bi-moon-fill"></i>
     </button>

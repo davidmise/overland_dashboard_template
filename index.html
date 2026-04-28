@@ -177,7 +177,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><h6 class="dropdown-header">My Account</h6></li>
@@ -302,7 +302,7 @@
                    Chart.js → https://www.chartjs.org/
                    ApexCharts → https://apexcharts.com/
                    ══════════════════════════════════════════════════════ -->
-              <div class="ol-chart-placeholder" style="min-height:260px;" aria-label="Chart placeholder">
+              <div class="ol-chart-placeholder ol-chart-placeholder--lg" aria-label="Chart placeholder">
                 <i class="bi bi-bar-chart-line"></i>
                 <strong>Delivery Volume Chart</strong>
                 <span class="text-center px-4">Integrate Chart.js, ApexCharts, or your preferred library here.</span>
@@ -322,7 +322,7 @@
             </div>
             <div class="ol-card__body">
               <!-- Chart placeholder -->
-              <div class="ol-chart-placeholder" style="min-height:180px;" aria-label="Donut chart placeholder">
+              <div class="ol-chart-placeholder ol-chart-placeholder--md" aria-label="Donut chart placeholder">
                 <i class="bi bi-pie-chart"></i>
                 <span>Fleet Status Donut Chart</span>
               </div>
@@ -330,21 +330,21 @@
               <div class="mt-4 d-flex flex-column gap-3">
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;border-radius:50%;background:var(--ol-lime);flex-shrink:0;display:inline-block;"></span>
+                    <span class="ol-legend-dot ol-legend-dot--lime"></span>
                     <span class="fs-sm">Active</span>
                   </div>
                   <strong>48 <span class="text-muted fw-normal">vehicles</span></strong>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;border-radius:50%;background:var(--ol-orange);flex-shrink:0;display:inline-block;"></span>
+                    <span class="ol-legend-dot ol-legend-dot--orange"></span>
                     <span class="fs-sm">In Maintenance</span>
                   </div>
                   <strong>11 <span class="text-muted fw-normal">vehicles</span></strong>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;border-radius:50%;background:var(--ol-gray);flex-shrink:0;display:inline-block;"></span>
+                    <span class="ol-legend-dot ol-legend-dot--gray"></span>
                     <span class="fs-sm">Idle</span>
                   </div>
                   <strong>5 <span class="text-muted fw-normal">vehicles</span></strong>
@@ -459,7 +459,7 @@
           </div>
         </div>
         <div class="ol-card__footer d-flex justify-content-between align-items-center flex-wrap gap-2">
-          <span class="text-muted" style="font-size:var(--ol-fs-xs);">Showing 8 of 248 shipments</span>
+          <span class="text-muted ol-meta-text-xs">Showing 8 of 248 shipments</span>
           <a href="pages/table.html" class="btn btn-sm btn-primary btn-icon">
             View full list <i class="bi bi-arrow-right"></i>
           </a>
@@ -478,39 +478,39 @@
             <div class="ol-card__body">
               <ul class="list-unstyled mb-0 d-flex flex-column gap-4">
                 <li class="d-flex gap-3">
-                  <div class="ol-avatar" style="background-color:var(--ol-lime);width:32px;height:32px;font-size:.7rem;flex-shrink:0;">
+                  <div class="ol-avatar ol-activity-avatar ol-activity-avatar--lime">
                     <i class="bi bi-check2"></i>
                   </div>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">OVL-2024-003 delivered successfully</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">2 hours ago</div>
+                    <div class="ol-activity-title">OVL-2024-003 delivered successfully</div>
+                    <div class="ol-activity-time">2 hours ago</div>
                   </div>
                 </li>
                 <li class="d-flex gap-3">
-                  <div class="ol-avatar" style="background-color:var(--ol-orange);width:32px;height:32px;font-size:.7rem;flex-shrink:0;">
+                  <div class="ol-avatar ol-activity-avatar ol-activity-avatar--orange">
                     <i class="bi bi-exclamation"></i>
                   </div>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">Vehicle TRK-017 scheduled for service</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">4 hours ago</div>
+                    <div class="ol-activity-title">Vehicle TRK-017 scheduled for service</div>
+                    <div class="ol-activity-time">4 hours ago</div>
                   </div>
                 </li>
                 <li class="d-flex gap-3">
-                  <div class="ol-avatar" style="background-color:var(--ol-gold);width:32px;height:32px;font-size:.7rem;flex-shrink:0;color:var(--ol-black);">
+                  <div class="ol-avatar ol-activity-avatar ol-activity-avatar--gold">
                     <i class="bi bi-person-plus"></i>
                   </div>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">New driver R. Baloyi onboarded</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Yesterday at 09:15</div>
+                    <div class="ol-activity-title">New driver R. Baloyi onboarded</div>
+                    <div class="ol-activity-time">Yesterday at 09:15</div>
                   </div>
                 </li>
                 <li class="d-flex gap-3">
-                  <div class="ol-avatar" style="background-color:var(--ol-red);width:32px;height:32px;font-size:.7rem;flex-shrink:0;">
+                  <div class="ol-avatar ol-activity-avatar ol-activity-avatar--red">
                     <i class="bi bi-x"></i>
                   </div>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">OVL-2024-008 cancelled by client</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Yesterday at 15:30</div>
+                    <div class="ol-activity-title">OVL-2024-008 cancelled by client</div>
+                    <div class="ol-activity-time">Yesterday at 15:30</div>
                   </div>
                 </li>
               </ul>

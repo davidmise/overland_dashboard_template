@@ -132,7 +132,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
@@ -158,9 +158,9 @@
           <p class="ol-page-subtitle">Performance analytics and scheduled reports for your fleet operations.</p>
         </div>
         <div class="ol-page-header__actions">
-          <div class="input-group" style="max-width:280px;">
+          <div class="input-group ol-input-group--280">
             <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
-            <input type="text" class="form-control" value="Apr 1, 2026 – Apr 27, 2026" readonly>
+            <input type="text" class="form-control" value="Apr 1, 2026 – Apr 27, 2026" readonly aria-label="Report date range" title="Report date range">
           </div>
           <button class="btn btn-outline-secondary btn-icon">
             <i class="bi bi-download"></i> Export PDF
@@ -223,7 +223,7 @@
               </div>
             </div>
             <div class="ol-card__body">
-              <div class="ol-chart-placeholder" style="height:280px;">
+              <div class="ol-chart-placeholder ol-chart-placeholder--280">
                 <!-- TODO: Inject delivery volume line / bar chart (Chart.js / ApexCharts) -->
               </div>
             </div>
@@ -235,28 +235,28 @@
               <h3 class="ol-card__title">Shipment Outcomes</h3>
             </div>
             <div class="ol-card__body">
-              <div class="ol-chart-placeholder" style="height:180px;">
+              <div class="ol-chart-placeholder ol-chart-placeholder--md">
                 <!-- TODO: Inject donut chart — On Time / Delayed / Cancelled -->
               </div>
               <div class="d-flex flex-column gap-2 mt-4">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;background:var(--ol-lime);border-radius:50%;display:inline-block;"></span>
-                    <span style="font-size:var(--ol-fs-sm);">On Time</span>
+                    <span class="ol-legend-dot ol-legend-dot--lime"></span>
+                    <span class="ol-text-sm-medium">On Time</span>
                   </div>
                   <strong>94.7%</strong>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;background:var(--ol-orange);border-radius:50%;display:inline-block;"></span>
-                    <span style="font-size:var(--ol-fs-sm);">Delayed</span>
+                    <span class="ol-legend-dot ol-legend-dot--orange"></span>
+                    <span class="ol-text-sm-medium">Delayed</span>
                   </div>
                   <strong>3.8%</strong>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center gap-2">
-                    <span style="width:10px;height:10px;background:var(--ol-red);border-radius:50%;display:inline-block;"></span>
-                    <span style="font-size:var(--ol-fs-sm);">Cancelled</span>
+                    <span class="ol-legend-dot ol-legend-dot--red"></span>
+                    <span class="ol-text-sm-medium">Cancelled</span>
                   </div>
                   <strong>1.5%</strong>
                 </div>
@@ -274,7 +274,7 @@
               <h3 class="ol-card__title">Fuel Costs by Vehicle Type</h3>
             </div>
             <div class="ol-card__body">
-              <div class="ol-chart-placeholder" style="height:200px;">
+              <div class="ol-chart-placeholder ol-chart-placeholder--200">
                 <!-- TODO: Inject horizontal bar chart — fuel by vehicle type -->
               </div>
             </div>
@@ -288,34 +288,34 @@
             <div class="ol-card__body">
               <div class="d-flex flex-column gap-3">
                 <div>
-                  <div class="d-flex justify-content-between mb-1" style="font-size:var(--ol-fs-sm);">
+                  <div class="ol-stat-row mb-1">
                     <span>Cape Town → JHB (RT-001)</span><strong>312</strong>
                   </div>
-                  <div class="progress" style="height:6px;border-radius:99px;"><div class="progress-bar" style="background:var(--ol-red);width:100%;"></div></div>
+                  <div class="progress ol-progress--thin"><div class="progress-bar bg-brand-red ol-progress-bar--100"></div></div>
                 </div>
                 <div>
-                  <div class="d-flex justify-content-between mb-1" style="font-size:var(--ol-fs-sm);">
+                  <div class="ol-stat-row mb-1">
                     <span>JHB → Durban (RT-002)</span><strong>278</strong>
                   </div>
-                  <div class="progress" style="height:6px;border-radius:99px;"><div class="progress-bar" style="background:var(--ol-red);width:89%;"></div></div>
+                  <div class="progress ol-progress--thin"><div class="progress-bar bg-brand-red ol-progress-bar--89"></div></div>
                 </div>
                 <div>
-                  <div class="d-flex justify-content-between mb-1" style="font-size:var(--ol-fs-sm);">
+                  <div class="ol-stat-row mb-1">
                     <span>Pretoria → JHB (RT-003)</span><strong>214</strong>
                   </div>
-                  <div class="progress" style="height:6px;border-radius:99px;"><div class="progress-bar" style="background:var(--ol-gold);width:68%;"></div></div>
+                  <div class="progress ol-progress--thin"><div class="progress-bar bg-brand-gold ol-progress-bar--68"></div></div>
                 </div>
                 <div>
-                  <div class="d-flex justify-content-between mb-1" style="font-size:var(--ol-fs-sm);">
+                  <div class="ol-stat-row mb-1">
                     <span>Durban → East London (RT-004)</span><strong>167</strong>
                   </div>
-                  <div class="progress" style="height:6px;border-radius:99px;"><div class="progress-bar" style="background:var(--ol-gold);width:53%;"></div></div>
+                  <div class="progress ol-progress--thin"><div class="progress-bar bg-brand-gold ol-progress-bar--53"></div></div>
                 </div>
                 <div>
-                  <div class="d-flex justify-content-between mb-1" style="font-size:var(--ol-fs-sm);">
+                  <div class="ol-stat-row mb-1">
                     <span>PE → Bloemfontein (RT-005)</span><strong>98</strong>
                   </div>
-                  <div class="progress" style="height:6px;border-radius:99px;"><div class="progress-bar" style="background:var(--ol-lime);width:31%;"></div></div>
+                  <div class="progress ol-progress--thin"><div class="progress-bar bg-brand-lime ol-progress-bar--31"></div></div>
                 </div>
               </div>
             </div>
@@ -351,7 +351,7 @@
                   <td>March 2026</td>
                   <td>Apr 1, 2026</td>
                   <td>1.2 MB</td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon" type="button" title="Download report" aria-label="Download report"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete report" aria-label="Delete report"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td><i class="bi bi-file-earmark-spreadsheet text-success me-2"></i><strong>Fuel Consumption Q1</strong></td>
@@ -359,7 +359,7 @@
                   <td>Jan – Mar 2026</td>
                   <td>Apr 3, 2026</td>
                   <td>856 KB</td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon" type="button" title="Download report" aria-label="Download report"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete report" aria-label="Delete report"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td><i class="bi bi-file-earmark-pdf text-danger me-2"></i><strong>Driver Performance — March</strong></td>
@@ -367,7 +367,7 @@
                   <td>March 2026</td>
                   <td>Apr 2, 2026</td>
                   <td>642 KB</td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon" type="button" title="Download report" aria-label="Download report"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete report" aria-label="Delete report"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td><i class="bi bi-file-earmark-pdf text-danger me-2"></i><strong>Maintenance Cost Report Q1</strong></td>
@@ -375,7 +375,7 @@
                   <td>Jan – Mar 2026</td>
                   <td>Apr 5, 2026</td>
                   <td>984 KB</td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary btn-icon" type="button" title="Download report" aria-label="Download report"><i class="bi bi-download"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete report" aria-label="Delete report"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td><i class="bi bi-clock text-muted me-2"></i><strong>Weekly Operations Summary</strong></td>
@@ -383,7 +383,7 @@
                   <td>Every Monday</td>
                   <td class="text-muted">Next: Apr 28</td>
                   <td>—</td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-secondary btn-icon"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-secondary btn-icon" type="button" title="Edit scheduled report" aria-label="Edit scheduled report"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete report" aria-label="Delete report"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
               </tbody>
             </table>

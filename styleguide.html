@@ -18,12 +18,43 @@
     /* Style-guide-specific additions */
     .sg-section { padding: 3rem 0; border-bottom: 1px solid var(--ol-card-border); }
     .sg-section:last-child { border-bottom: none; }
+    .sg-brand-logo { height: 32px; }
+    .sg-brand-title {
+      font-family: var(--ol-font-brand);
+      font-weight: var(--ol-fw-bold);
+      font-size: var(--ol-fs-lg);
+    }
+    .sg-container { max-width: 1100px; }
+    .sg-hero {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--ol-card-border) !important;
+    }
+    .sg-hero-title {
+      font-family: var(--ol-font-brand);
+      font-size: var(--ol-fs-4xl);
+      font-weight: var(--ol-fw-black);
+      color: var(--ol-heading-color);
+      margin-bottom: .5rem;
+    }
+    .sg-hero-copy {
+      font-size: var(--ol-fs-lg);
+      color: var(--ol-muted-text);
+      max-width: 600px;
+      line-height: 1.7;
+    }
     .sg-section-title {
       font-family: var(--ol-font-brand);
       font-size: var(--ol-fs-xl);
       font-weight: var(--ol-fw-black);
       color: var(--ol-heading-color);
       margin-bottom: .375rem;
+    }
+    .sg-subsection-title {
+      font-family: var(--ol-font-brand);
+      font-size: var(--ol-fs-md);
+      font-weight: var(--ol-fw-bold);
+      margin-bottom: 1rem;
     }
     .sg-section-desc { color: var(--ol-muted-text); font-size: var(--ol-fs-sm); margin-bottom: 2rem; }
     .sg-label {
@@ -66,6 +97,101 @@
       justify-content: space-between;
       box-shadow: var(--ol-shadow-xs);
     }
+    .sg-display-value {
+      font-family: var(--ol-font-brand);
+      font-size: var(--ol-fs-3xl);
+      font-weight: var(--ol-fw-black);
+      color: var(--ol-heading-color);
+    }
+    .sg-body-lg {
+      font-family: var(--ol-font-system);
+      font-size: var(--ol-fs-md);
+    }
+    .sg-body-base { font-family: var(--ol-font-system); }
+    .sg-body-sm {
+      font-family: var(--ol-font-system);
+      font-size: var(--ol-fs-sm);
+      font-weight: var(--ol-fw-medium);
+    }
+    .sg-body-caption {
+      font-family: var(--ol-font-system);
+      font-size: var(--ol-fs-xs);
+      font-weight: var(--ol-fw-bold);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ol-muted-text);
+    }
+    .sg-swatch--black { background: #000000; }
+    .sg-swatch--red { background: #ed1c24; }
+    .sg-swatch--gold { background: #fac56e; }
+    .sg-swatch--red-dark { background: #c41019; }
+    .sg-swatch--red-light {
+      background: #fde8e9;
+      border: 1px solid #f0c0c2;
+    }
+    .sg-swatch--gold-light {
+      background: #fff8ee;
+      border: 1px solid #efe0c0;
+    }
+    .sg-swatch--gray { background: #7c7b7b; }
+    .sg-swatch--tan { background: #d8b478; }
+    .sg-swatch--orange { background: #f89f1e; }
+    .sg-swatch--lime { background: #a0b83b; }
+    .sg-swatch--lime-light {
+      background: #eef3d8;
+      border: 1px solid #d0de9a;
+    }
+    .sg-swatch--orange-light {
+      background: #fff3e0;
+      border: 1px solid #f4d8a0;
+    }
+    .sg-space-chip {
+      background: var(--ol-red);
+      margin: 0 auto 8px;
+      border-radius: 2px;
+    }
+    .sg-space-chip--1 {
+      width: var(--ol-space-1);
+      height: var(--ol-space-1);
+    }
+    .sg-space-chip--2 {
+      width: var(--ol-space-2);
+      height: var(--ol-space-2);
+    }
+    .sg-space-chip--4 {
+      width: var(--ol-space-4);
+      height: var(--ol-space-4);
+    }
+    .sg-space-chip--6 {
+      width: var(--ol-space-6);
+      height: var(--ol-space-6);
+    }
+    .sg-space-chip--8 {
+      width: var(--ol-space-8);
+      height: var(--ol-space-8);
+    }
+    .sg-space-chip--12 {
+      width: var(--ol-space-12);
+      height: var(--ol-space-12);
+    }
+    .sg-space-chip--16 {
+      width: var(--ol-space-16);
+      height: var(--ol-space-16);
+    }
+    .sg-logo-card {
+      padding: 2rem;
+      border-radius: var(--ol-radius-lg);
+      text-align: center;
+    }
+    .sg-logo-card--light {
+      background: #fff;
+      border: 1px solid var(--ol-card-border);
+    }
+    .sg-logo-card--dark { background: #000000; }
+    .sg-logo-image {
+      height: 40px;
+      max-width: 100%;
+    }
     [data-bs-theme="dark"] .sg-swatch { border-color: rgba(255,255,255,.06); }
   </style>
 </head>
@@ -74,8 +200,8 @@
 <!-- Style Guide Top Bar -->
 <div class="sg-topbar">
   <div class="d-flex align-items-center gap-3">
-    <img src="image/PNG/Logo-01.png" alt="Overland" style="height:32px;">
-    <span style="font-family:var(--ol-font-brand);font-weight:var(--ol-fw-bold);font-size:var(--ol-fs-lg);">Design System</span>
+    <img src="image/PNG/Logo-01.png" alt="Overland" class="sg-brand-logo">
+    <span class="sg-brand-title">Design System</span>
     <span class="ol-badge ol-badge--info ms-1">v1.0.0</span>
   </div>
   <div class="d-flex align-items-center gap-3">
@@ -89,14 +215,14 @@
 </div>
 
 <!-- Main -->
-<div class="container-xl py-5" style="max-width:1100px;">
+<div class="container-xl py-5 sg-container">
 
   <!-- Hero -->
-  <div class="mb-5 pb-4 border-bottom" style="border-color:var(--ol-card-border)!important;">
-    <h1 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-4xl);font-weight:var(--ol-fw-black);color:var(--ol-heading-color);margin-bottom:.5rem;">
+  <div class="sg-hero">
+    <h1 class="sg-hero-title">
       Overland<br><span class="text-brand-red">Design System</span>
     </h1>
-    <p style="font-size:var(--ol-fs-lg);color:var(--ol-muted-text);max-width:600px;line-height:1.7;">
+    <p class="sg-hero-copy">
       A living style guide documenting the Overland brand tokens, components, and patterns for developers building with Bootstrap 5.
     </p>
   </div>
@@ -106,80 +232,80 @@
     <h2 class="sg-section-title">Colour System</h2>
     <p class="sg-section-desc">All colours are defined as CSS custom properties in <code class="sg-code">overland-tokens.css</code> and mapped to Bootstrap semantic variables in <code class="sg-code">overland-light.css</code> / <code class="sg-code">overland-dark.css</code>.</p>
 
-    <h3 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-md);font-weight:var(--ol-fw-bold);margin-bottom:1rem;">Primary Palette</h3>
+    <h3 class="sg-subsection-title">Primary Palette</h3>
     <div class="row g-3 mb-5">
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#000000;"></div>
+        <div class="sg-swatch sg-swatch--black"></div>
         <div class="sg-label">Black</div>
         <div class="sg-code">#000000</div>
         <div class="sg-token">--ol-black</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#ed1c24;"></div>
+        <div class="sg-swatch sg-swatch--red"></div>
         <div class="sg-label">Red</div>
         <div class="sg-code">#ed1c24</div>
         <div class="sg-token">--ol-red</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#fac56e;"></div>
+        <div class="sg-swatch sg-swatch--gold"></div>
         <div class="sg-label">Gold</div>
         <div class="sg-code">#fac56e</div>
         <div class="sg-token">--ol-gold</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#c41019;"></div>
+        <div class="sg-swatch sg-swatch--red-dark"></div>
         <div class="sg-label">Red Dark</div>
         <div class="sg-code">#c41019</div>
         <div class="sg-token">--ol-red-dark</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#fde8e9;border:1px solid #f0c0c2;"></div>
+        <div class="sg-swatch sg-swatch--red-light"></div>
         <div class="sg-label">Red Light</div>
         <div class="sg-code">#fde8e9</div>
         <div class="sg-token">--ol-red-light</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#fff8ee;border:1px solid #efe0c0;"></div>
+        <div class="sg-swatch sg-swatch--gold-light"></div>
         <div class="sg-label">Gold Light</div>
         <div class="sg-code">#fff8ee</div>
         <div class="sg-token">--ol-gold-light</div>
       </div>
     </div>
 
-    <h3 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-md);font-weight:var(--ol-fw-bold);margin-bottom:1rem;">Secondary Palette</h3>
+    <h3 class="sg-subsection-title">Secondary Palette</h3>
     <div class="row g-3">
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#7c7b7b;"></div>
+        <div class="sg-swatch sg-swatch--gray"></div>
         <div class="sg-label">Gray</div>
         <div class="sg-code">#7c7b7b</div>
         <div class="sg-token">--ol-gray</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#d8b478;"></div>
+        <div class="sg-swatch sg-swatch--tan"></div>
         <div class="sg-label">Tan</div>
         <div class="sg-code">#d8b478</div>
         <div class="sg-token">--ol-tan</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#f89f1e;"></div>
+        <div class="sg-swatch sg-swatch--orange"></div>
         <div class="sg-label">Orange</div>
         <div class="sg-code">#f89f1e</div>
         <div class="sg-token">--ol-orange</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#a0b83b;"></div>
+        <div class="sg-swatch sg-swatch--lime"></div>
         <div class="sg-label">Lime</div>
         <div class="sg-code">#a0b83b</div>
         <div class="sg-token">--ol-lime</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#eef3d8;border:1px solid #d0de9a;"></div>
+        <div class="sg-swatch sg-swatch--lime-light"></div>
         <div class="sg-label">Lime Light</div>
         <div class="sg-code">#eef3d8</div>
         <div class="sg-token">--ol-lime-light</div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
-        <div class="sg-swatch" style="background:#fff3e0;border:1px solid #f4d8a0;"></div>
+        <div class="sg-swatch sg-swatch--orange-light"></div>
         <div class="sg-label">Orange Light</div>
         <div class="sg-code">#fff3e0</div>
         <div class="sg-token">--ol-orange-light</div>
@@ -224,7 +350,7 @@
         </div>
         <div>
           <div class="sg-label">Display — 2.5rem / Black (900)</div>
-          <p class="mb-0" style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-3xl);font-weight:var(--ol-fw-black);color:var(--ol-heading-color);">248</p>
+          <p class="mb-0 sg-display-value">248</p>
         </div>
       </div>
     </div>
@@ -236,13 +362,13 @@
       </div>
       <div class="ol-card__body d-flex flex-column gap-3">
         <div><div class="sg-label">Large body — 1.125rem / Regular</div>
-          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-md);">Overland provides real-time fleet visibility across your entire operations network.</p></div>
+          <p class="mb-0 sg-body-lg">Overland provides real-time fleet visibility across your entire operations network.</p></div>
         <div><div class="sg-label">Base body — 1rem / Regular</div>
-          <p class="mb-0" style="font-family:var(--ol-font-system);">The shipment was dispatched from Cape Town and is currently in transit along the N1 route.</p></div>
+          <p class="mb-0 sg-body-base">The shipment was dispatched from Cape Town and is currently in transit along the N1 route.</p></div>
         <div><div class="sg-label">Small — 0.875rem / Medium</div>
-          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">Estimated arrival: Apr 28, 14:00 · Driver: D. Mokoena</p></div>
+          <p class="mb-0 sg-body-sm">Estimated arrival: Apr 28, 14:00 · Driver: D. Mokoena</p></div>
         <div><div class="sg-label">Caption / Label — 0.75rem / Bold + Uppercase</div>
-          <p class="mb-0" style="font-family:var(--ol-font-system);font-size:var(--ol-fs-xs);font-weight:var(--ol-fw-bold);text-transform:uppercase;letter-spacing:.07em;color:var(--ol-muted-text);">Last 30 days</p></div>
+          <p class="mb-0 sg-body-caption">Last 30 days</p></div>
       </div>
     </div>
   </section>
@@ -397,8 +523,8 @@
           </div>
           <!-- Select -->
           <div class="col-12 col-md-6">
-            <label class="form-label">Select</label>
-            <select class="form-select">
+            <label class="form-label" for="sg-select-route">Select</label>
+            <select id="sg-select-route" class="form-select">
               <option>Select an option…</option>
               <option>Cape Town → Johannesburg</option>
               <option>Durban → Pretoria</option>
@@ -411,14 +537,14 @@
           </div>
           <!-- Valid state -->
           <div class="col-12 col-md-6">
-            <label class="form-label">Valid state</label>
-            <input type="text" class="form-control is-valid" value="OVL-2024-013">
+            <label class="form-label" for="sg-valid-input">Valid state</label>
+            <input id="sg-valid-input" type="text" class="form-control is-valid" value="OVL-2024-013">
             <div class="valid-feedback d-block">Tracking reference format is correct.</div>
           </div>
           <!-- Invalid state -->
           <div class="col-12 col-md-6">
-            <label class="form-label">Invalid state</label>
-            <input type="email" class="form-control is-invalid" value="not-an-email">
+            <label class="form-label" for="sg-invalid-input">Invalid state</label>
+            <input id="sg-invalid-input" type="email" class="form-control is-invalid" value="not-an-email">
             <div class="invalid-feedback d-block">Please enter a valid email address.</div>
           </div>
           <!-- Checkboxes & radios -->
@@ -514,28 +640,28 @@
                 <td>Cape Town → JHB</td>
                 <td>Apr 28, 14:00</td>
                 <td><span class="ol-badge ol-badge--active">In Transit</span></td>
-                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" aria-label="Edit shipment OVL-2024-001" title="Edit shipment OVL-2024-001"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" aria-label="Delete shipment OVL-2024-001" title="Delete shipment OVL-2024-001"><i class="bi bi-trash"></i></button></div></td>
               </tr>
               <tr>
                 <td><code class="text-brand-red">OVL-2024-002</code></td>
                 <td>Durban → Pretoria</td>
                 <td>Apr 28, 16:30</td>
                 <td><span class="ol-badge ol-badge--pending">Pending</span></td>
-                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" aria-label="Edit shipment OVL-2024-002" title="Edit shipment OVL-2024-002"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" aria-label="Delete shipment OVL-2024-002" title="Delete shipment OVL-2024-002"><i class="bi bi-trash"></i></button></div></td>
               </tr>
               <tr>
                 <td><code class="text-brand-red">OVL-2024-003</code></td>
                 <td>JHB → Bloemfontein</td>
                 <td>Apr 27, 09:00</td>
                 <td><span class="ol-badge ol-badge--active">Delivered</span></td>
-                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" aria-label="Edit shipment OVL-2024-003" title="Edit shipment OVL-2024-003"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" aria-label="Delete shipment OVL-2024-003" title="Delete shipment OVL-2024-003"><i class="bi bi-trash"></i></button></div></td>
               </tr>
               <tr>
                 <td><code class="text-brand-red">OVL-2024-004</code></td>
                 <td>PE → East London</td>
                 <td>Apr 29, 08:00</td>
                 <td><span class="ol-badge ol-badge--critical">Delayed</span></td>
-                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" aria-label="Edit shipment OVL-2024-004" title="Edit shipment OVL-2024-004"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" aria-label="Delete shipment OVL-2024-004" title="Delete shipment OVL-2024-004"><i class="bi bi-trash"></i></button></div></td>
               </tr>
             </tbody>
           </table>
@@ -552,37 +678,37 @@
     <div class="ol-card">
       <div class="ol-card__body d-flex flex-wrap gap-4 align-items-end">
         <div class="text-center">
-          <div style="width:var(--ol-space-1);height:var(--ol-space-1);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--1"></div>
           <div class="sg-code">4px</div>
           <div class="sg-label">space-1</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-2);height:var(--ol-space-2);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--2"></div>
           <div class="sg-code">8px</div>
           <div class="sg-label">space-2</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-4);height:var(--ol-space-4);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--4"></div>
           <div class="sg-code">16px</div>
           <div class="sg-label">space-4</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-6);height:var(--ol-space-6);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--6"></div>
           <div class="sg-code">24px</div>
           <div class="sg-label">space-6</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-8);height:var(--ol-space-8);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--8"></div>
           <div class="sg-code">32px</div>
           <div class="sg-label">space-8</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-12);height:var(--ol-space-12);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--12"></div>
           <div class="sg-code">48px</div>
           <div class="sg-label">space-12</div>
         </div>
         <div class="text-center">
-          <div style="width:var(--ol-space-16);height:var(--ol-space-16);background:var(--ol-red);margin:0 auto 8px;border-radius:2px;"></div>
+          <div class="sg-space-chip sg-space-chip--16"></div>
           <div class="sg-code">64px</div>
           <div class="sg-label">space-16</div>
         </div>
@@ -597,26 +723,26 @@
 
     <div class="row g-4">
       <div class="col-12 col-sm-6 col-lg-3">
-        <div style="background:#fff;padding:2rem;border-radius:var(--ol-radius-lg);border:1px solid var(--ol-card-border);text-align:center;">
-          <img src="image/PNG/Logo-01.png" alt="Logo-01 — light/white background" style="height:40px;max-width:100%;">
+        <div class="sg-logo-card sg-logo-card--light">
+          <img src="image/PNG/Logo-01.png" alt="Logo-01 — light/white background" class="sg-logo-image">
         </div>
         <div class="sg-label">Logo-01 — Light / White background</div>
       </div>
       <div class="col-12 col-sm-6 col-lg-3">
-        <div style="background:#000000;padding:2rem;border-radius:var(--ol-radius-lg);text-align:center;">
-          <img src="image/PNG/Logo-02.png" alt="Logo-02 — dark/black background" style="height:40px;max-width:100%;">
+        <div class="sg-logo-card sg-logo-card--dark">
+          <img src="image/PNG/Logo-02.png" alt="Logo-02 — dark/black background" class="sg-logo-image">
         </div>
         <div class="sg-label">Logo-02 — Dark / Black background</div>
       </div>
       <div class="col-12 col-sm-6 col-lg-3">
-        <div style="background:#000000;padding:2rem;border-radius:var(--ol-radius-lg);text-align:center;">
-          <img src="image/PNG/Logo-03.png" alt="Logo-03 — icon mark, collapsed sidebar" style="height:40px;max-width:100%;">
+        <div class="sg-logo-card sg-logo-card--dark">
+          <img src="image/PNG/Logo-03.png" alt="Logo-03 — icon mark, collapsed sidebar" class="sg-logo-image">
         </div>
         <div class="sg-label">Logo-03 — Icon mark (collapsed sidebar)</div>
       </div>
       <div class="col-12 col-sm-6 col-lg-3">
-        <div style="background:#fff;padding:2rem;border-radius:var(--ol-radius-lg);border:1px solid var(--ol-card-border);text-align:center;">
-          <img src="image/PNG/Logo-04.png" alt="Logo-04 — black wordmark variant" style="height:40px;max-width:100%;">
+        <div class="sg-logo-card sg-logo-card--light">
+          <img src="image/PNG/Logo-04.png" alt="Logo-04 — black wordmark variant" class="sg-logo-image">
         </div>
         <div class="sg-label">Logo-04 — Black wordmark variant</div>
       </div>

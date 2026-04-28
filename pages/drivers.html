@@ -132,7 +132,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
@@ -212,8 +212,8 @@
               </div>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Status</label>
-              <select class="form-select">
+              <label class="form-label" for="drivers-status-filter">Status</label>
+              <select class="form-select" id="drivers-status-filter">
                 <option value="">All statuses</option>
                 <option>On Route</option>
                 <option>Available</option>
@@ -222,8 +222,8 @@
               </select>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Base</label>
-              <select class="form-select">
+              <label class="form-label" for="drivers-base-filter">Base</label>
+              <select class="form-select" id="drivers-base-filter">
                 <option value="">All bases</option>
                 <option>Johannesburg</option>
                 <option>Cape Town</option>
@@ -232,8 +232,8 @@
               </select>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Licence</label>
-              <select class="form-select">
+              <label class="form-label" for="drivers-licence-filter">Licence</label>
+              <select class="form-select" id="drivers-licence-filter">
                 <option value="">All classes</option>
                 <option>Code 14 (EC)</option>
                 <option>Code 10 (C)</option>
@@ -269,10 +269,10 @@
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">DM</div>
+                      <div class="ol-avatar ol-avatar--sm">DM</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">D. Mokoena</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 82 555 0101</div>
+                        <div class="fw-medium">D. Mokoena</div>
+                        <div class="ol-text-xs-muted">+27 82 555 0101</div>
                       </div>
                     </div>
                   </td>
@@ -283,15 +283,15 @@
                   <td>Cape Town</td>
                   <td>18</td>
                   <td><span class="ol-badge ol-badge--active">On Route</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">TV</div>
+                      <div class="ol-avatar ol-avatar--sm">TV</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">T. van der Merwe</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 83 555 0102</div>
+                        <div class="fw-medium">T. van der Merwe</div>
+                        <div class="ol-text-xs-muted">+27 83 555 0102</div>
                       </div>
                     </div>
                   </td>
@@ -302,15 +302,15 @@
                   <td>Johannesburg</td>
                   <td>22</td>
                   <td><span class="ol-badge ol-badge--active">On Route</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">SD</div>
+                      <div class="ol-avatar ol-avatar--sm">SD</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">S. Dlamini</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 71 555 0103</div>
+                        <div class="fw-medium">S. Dlamini</div>
+                        <div class="ol-text-xs-muted">+27 71 555 0103</div>
                       </div>
                     </div>
                   </td>
@@ -321,15 +321,15 @@
                   <td>Durban</td>
                   <td>14</td>
                   <td><span class="ol-badge ol-badge--pending">Maintenance</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">LN</div>
+                      <div class="ol-avatar ol-avatar--sm">LN</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">L. Nkosi</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 79 555 0104</div>
+                        <div class="fw-medium">L. Nkosi</div>
+                        <div class="ol-text-xs-muted">+27 79 555 0104</div>
                       </div>
                     </div>
                   </td>
@@ -340,15 +340,15 @@
                   <td>Johannesburg</td>
                   <td>31</td>
                   <td><span class="ol-badge ol-badge--active">On Route</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">AP</div>
+                      <div class="ol-avatar ol-avatar--sm">AP</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">A. Pietersen</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 84 555 0105</div>
+                        <div class="fw-medium">A. Pietersen</div>
+                        <div class="ol-text-xs-muted">+27 84 555 0105</div>
                       </div>
                     </div>
                   </td>
@@ -359,15 +359,15 @@
                   <td>Cape Town</td>
                   <td>9</td>
                   <td><span class="ol-badge ol-badge--inactive">On Leave</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">PB</div>
+                      <div class="ol-avatar ol-avatar--sm">PB</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">P. Botha</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 76 555 0106</div>
+                        <div class="fw-medium">P. Botha</div>
+                        <div class="ol-text-xs-muted">+27 76 555 0106</div>
                       </div>
                     </div>
                   </td>
@@ -378,15 +378,15 @@
                   <td>Pretoria</td>
                   <td>25</td>
                   <td><span class="ol-badge ol-badge--active">On Route</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center gap-2">
-                      <div class="ol-avatar" style="width:32px;height:32px;font-size:.7rem;">MS</div>
+                      <div class="ol-avatar ol-avatar--sm">MS</div>
                       <div>
-                        <div style="font-weight:var(--ol-fw-medium);">M. Sithole</div>
-                        <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">+27 72 555 0107</div>
+                        <div class="fw-medium">M. Sithole</div>
+                        <div class="ol-text-xs-muted">+27 72 555 0107</div>
                       </div>
                     </div>
                   </td>
@@ -397,17 +397,17 @@
                   <td>East London</td>
                   <td>17</td>
                   <td><span class="ol-badge ol-badge--active">On Route</span></td>
-                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></div></td>
+                  <td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="button" title="Edit driver" aria-label="Edit driver"><i class="bi bi-pencil"></i></button><button class="btn btn-sm btn-outline-danger" type="button" title="Delete driver" aria-label="Delete driver"><i class="bi bi-trash"></i></button></div></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div class="ol-card__footer d-flex justify-content-between align-items-center flex-wrap gap-3">
-          <div style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);">Showing 7 of 42 drivers</div>
+            <div class="ol-text-sm-muted">Showing 7 of 42 drivers</div>
           <nav aria-label="Drivers pagination">
             <ul class="pagination pagination-sm mb-0">
-              <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+              <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" title="Previous"><i class="bi bi-chevron-left"></i></a></li>
               <li class="page-item active"><a class="page-link" href="#">1</a></li>
               <li class="page-item"><a class="page-link" href="#">2</a></li>
               <li class="page-item"><a class="page-link" href="#">3</a></li>

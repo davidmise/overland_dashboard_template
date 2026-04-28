@@ -136,7 +136,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
@@ -221,8 +221,8 @@
               </div>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Status</label>
-              <select class="form-select" id="status-filter">
+              <label class="form-label" for="vehicles-status-filter">Status</label>
+              <select class="form-select" id="vehicles-status-filter">
                 <option value="">All statuses</option>
                 <option>Active</option>
                 <option>Maintenance</option>
@@ -231,8 +231,8 @@
               </select>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Type</label>
-              <select class="form-select">
+              <label class="form-label" for="vehicles-type-filter">Type</label>
+              <select class="form-select" id="vehicles-type-filter">
                 <option value="">All types</option>
                 <option>Rigid Truck</option>
                 <option>Articulated</option>
@@ -241,8 +241,8 @@
               </select>
             </div>
             <div class="col-6 col-md-2">
-              <label class="form-label">Base</label>
-              <select class="form-select">
+              <label class="form-label" for="vehicles-base-filter">Base</label>
+              <select class="form-select" id="vehicles-base-filter">
                 <option value="">All bases</option>
                 <option>Johannesburg</option>
                 <option>Cape Town</option>
@@ -266,7 +266,7 @@
             <table class="ol-table" id="vehicles-table" data-sortable>
               <thead>
                 <tr>
-                  <th style="width:40px;">
+                  <th class="ol-table-col-select">
                     <input type="checkbox" class="form-check-input" id="select-all" aria-label="Select all vehicles">
                   </th>
                   <th data-col="1">Registration <i class="bi bi-arrow-down-up sort-icon"></i></th>
@@ -383,7 +383,7 @@
         </div>
         <!-- Pagination -->
         <div class="ol-card__footer d-flex justify-content-between align-items-center flex-wrap gap-3">
-          <div style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);">Showing 8 of 64 vehicles</div>
+          <div class="ol-text-sm-muted">Showing 8 of 64 vehicles</div>
           <nav aria-label="Vehicles pagination">
             <ul class="pagination pagination-sm mb-0">
               <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="bi bi-chevron-left"></i></a></li>

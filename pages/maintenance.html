@@ -136,7 +136,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
@@ -241,7 +241,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><strong>KZN 345-678</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">MAN TGX 26.440</span></td>
+                      <td><strong>KZN 345-678</strong><br><span class="ol-text-xs-muted">MAN TGX 26.440</span></td>
                       <td><i class="bi bi-gear me-1 text-muted"></i>50 000 km Service</td>
                       <td>Apr 27, 2026</td>
                       <td>Durban Auto</td>
@@ -249,7 +249,7 @@
                       <td><span class="ol-badge ol-badge--pending">In Progress</span></td>
                     </tr>
                     <tr>
-                      <td><strong>WC 890-123</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">DAF XF 480</span></td>
+                      <td><strong>WC 890-123</strong><br><span class="ol-text-xs-muted">DAF XF 480</span></td>
                       <td><i class="bi bi-exclamation-octagon me-1 text-danger"></i>Brake System Repair</td>
                       <td>Apr 25, 2026</td>
                       <td>Cape Town Fleet</td>
@@ -257,7 +257,7 @@
                       <td><span class="ol-badge ol-badge--critical">Overdue</span></td>
                     </tr>
                     <tr>
-                      <td><strong>CA 123-456</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Mercedes Actros</span></td>
+                      <td><strong>CA 123-456</strong><br><span class="ol-text-xs-muted">Mercedes Actros</span></td>
                       <td><i class="bi bi-gear me-1 text-muted"></i>100 000 km Service</td>
                       <td>May 15, 2026</td>
                       <td>Merc Commercial CT</td>
@@ -265,7 +265,7 @@
                       <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
                     </tr>
                     <tr>
-                      <td><strong>GP 789-012</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Volvo FH 500</span></td>
+                      <td><strong>GP 789-012</strong><br><span class="ol-text-xs-muted">Volvo FH 500</span></td>
                       <td><i class="bi bi-gear me-1 text-muted"></i>Tyre Replacement</td>
                       <td>May 22, 2026</td>
                       <td>JHB Tyre Centre</td>
@@ -273,7 +273,7 @@
                       <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
                     </tr>
                     <tr>
-                      <td><strong>GT 456-789</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Scania R 500</span></td>
+                      <td><strong>GT 456-789</strong><br><span class="ol-text-xs-muted">Scania R 500</span></td>
                       <td><i class="bi bi-gear me-1 text-muted"></i>Oil &amp; Filter Change</td>
                       <td>Jun 02, 2026</td>
                       <td>Pretoria Scania</td>
@@ -281,7 +281,7 @@
                       <td><span class="ol-badge ol-badge--info">Scheduled</span></td>
                     </tr>
                     <tr>
-                      <td><strong>EC 678-901</strong><br><span style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Hino 500</span></td>
+                      <td><strong>EC 678-901</strong><br><span class="ol-text-xs-muted">Hino 500</span></td>
                       <td><i class="bi bi-check-circle me-1 text-success"></i>Annual Roadworthy</td>
                       <td>Apr 20, 2026</td>
                       <td>East London DoT</td>
@@ -304,24 +304,24 @@
               <h3 class="ol-card__title">Maintenance Costs</h3>
             </div>
             <div class="ol-card__body">
-              <p style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);text-transform:uppercase;letter-spacing:.07em;font-weight:700;margin-bottom:.25rem;">April 2026</p>
-              <p style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-3xl);font-weight:var(--ol-fw-black);color:var(--ol-heading-color);margin-bottom:.25rem;">R 37 450</p>
-              <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);" class="mb-4">+18% vs March 2026</p>
+              <p class="ol-label-caps">April 2026</p>
+              <p class="ol-text-display-lg">R 37 450</p>
+              <p class="ol-text-sm-muted mb-4">+18% vs March 2026</p>
 
               <!-- Chart placeholder -->
-              <div class="ol-chart-placeholder" style="height:140px;">
+              <div class="ol-chart-placeholder ol-chart-placeholder--sm">
                 <!-- TODO: Inject cost trend bar chart (Chart.js / ApexCharts) -->
               </div>
 
               <hr class="ol-divider">
-              <div class="d-flex justify-content-between" style="font-size:var(--ol-fs-sm);">
-                <span style="color:var(--ol-muted-text);">Budget this month</span>
+              <div class="ol-stat-row">
+                <span class="ol-text-sm-muted">Budget this month</span>
                 <strong>R 45 000</strong>
               </div>
-              <div class="progress mt-2" style="height:6px;border-radius:99px;">
-                <div class="progress-bar bg-warning" style="width:83%;" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress mt-2 ol-progress--thin">
+                <div class="progress-bar bg-warning ol-progress-bar--83" role="progressbar" aria-label="83 percent of monthly budget used" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-              <p style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);margin-top:.4rem;">83% of monthly budget used</p>
+              <p class="ol-text-xs-muted mt-2">83% of monthly budget used</p>
             </div>
           </div>
 
@@ -331,27 +331,27 @@
               <h3 class="ol-card__title">Quick Log</h3>
             </div>
             <div class="ol-card__body">
-              <p style="font-size:var(--ol-fs-sm);color:var(--ol-muted-text);">Recently completed jobs</p>
+              <p class="ol-text-sm-muted">Recently completed jobs</p>
               <div class="d-flex flex-column gap-3">
                 <div class="d-flex gap-3 align-items-start">
                   <span class="ol-badge ol-badge--active mt-1">Done</span>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">EC 678-901 — Annual Roadworthy</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Apr 20, 2026 · R 850</div>
+                    <div class="ol-text-sm-medium">EC 678-901 — Annual Roadworthy</div>
+                    <div class="ol-text-xs-muted">Apr 20, 2026 · R 850</div>
                   </div>
                 </div>
                 <div class="d-flex gap-3 align-items-start">
                   <span class="ol-badge ol-badge--active mt-1">Done</span>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">FS 567-890 — Oil &amp; Filter Change</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Apr 18, 2026 · R 1 200</div>
+                    <div class="ol-text-sm-medium">FS 567-890 — Oil &amp; Filter Change</div>
+                    <div class="ol-text-xs-muted">Apr 18, 2026 · R 1 200</div>
                   </div>
                 </div>
                 <div class="d-flex gap-3 align-items-start">
                   <span class="ol-badge ol-badge--active mt-1">Done</span>
                   <div>
-                    <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-medium);">GP 234-567 — 50 000 km Service</div>
-                    <div style="font-size:var(--ol-fs-xs);color:var(--ol-muted-text);">Apr 10, 2026 · R 3 400</div>
+                    <div class="ol-text-sm-medium">GP 234-567 — 50 000 km Service</div>
+                    <div class="ol-text-xs-muted">Apr 10, 2026 · R 3 400</div>
                   </div>
                 </div>
               </div>

@@ -30,54 +30,53 @@
     <!-- Red accent stripe at top -->
     <div class="ol-auth-brand-panel__red-stripe"></div>
     <!-- Decorative graphic element (organic blob) -->
-    <div class="ol-auth-brand-panel__graphic"
-         style="background-image: url('../image/graphic_element.png');"></div>
+    <div class="ol-auth-brand-panel__graphic"></div>
 
     <!-- Brand content -->
     <div class="ol-auth-brand-panel__content">
       <img src="../image/PNG/Logo-02.png"
-           alt="Overland" style="height:52px; margin-bottom:2.5rem;">
+           alt="Overland" class="ol-auth-brand-logo">
 
-      <h1 style="font-family:var(--ol-font-brand);font-size:var(--ol-fs-2xl);font-weight:var(--ol-fw-black);margin-bottom:var(--ol-space-4);line-height:1.2;">
+      <h1 class="ol-auth-brand-heading">
         Fleet Management<br>Dashboard
       </h1>
-      <p style="font-size:var(--ol-fs-sm);opacity:.75;line-height:1.7;margin-bottom:var(--ol-space-8);">
+      <p class="ol-auth-brand-copy">
         Real-time visibility into your entire fleet operation — shipments, routes, drivers, and vehicles — all in one place.
       </p>
 
       <!-- Feature bullets -->
       <ul class="list-unstyled d-flex flex-column gap-3 text-start">
         <li class="d-flex align-items-start gap-3">
-          <span style="width:28px;height:28px;background:rgba(250,197,110,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <i class="bi bi-truck" style="color:var(--ol-gold);font-size:.875rem;"></i>
+          <span class="ol-auth-feature-icon ol-auth-feature-icon--gold">
+            <i class="bi bi-truck"></i>
           </span>
           <div>
-            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Live Fleet Tracking</div>
-            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Real-time GPS positions for all vehicles</div>
+            <div class="ol-auth-feature-title">Live Fleet Tracking</div>
+            <div class="ol-auth-feature-copy">Real-time GPS positions for all vehicles</div>
           </div>
         </li>
         <li class="d-flex align-items-start gap-3">
-          <span style="width:28px;height:28px;background:rgba(160,184,59,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <i class="bi bi-bar-chart-line" style="color:var(--ol-lime);font-size:.875rem;"></i>
+          <span class="ol-auth-feature-icon ol-auth-feature-icon--lime">
+            <i class="bi bi-bar-chart-line"></i>
           </span>
           <div>
-            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Analytics & Reporting</div>
-            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Operational insights across your entire network</div>
+            <div class="ol-auth-feature-title">Analytics & Reporting</div>
+            <div class="ol-auth-feature-copy">Operational insights across your entire network</div>
           </div>
         </li>
         <li class="d-flex align-items-start gap-3">
-          <span style="width:28px;height:28px;background:rgba(237,28,36,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <i class="bi bi-shield-check" style="color:var(--ol-red);font-size:.875rem;"></i>
+          <span class="ol-auth-feature-icon ol-auth-feature-icon--red">
+            <i class="bi bi-shield-check"></i>
           </span>
           <div>
-            <div style="font-size:var(--ol-fs-sm);font-weight:var(--ol-fw-bold);">Role-Based Access</div>
-            <div style="font-size:var(--ol-fs-xs);opacity:.65;margin-top:2px;">Granular permissions for every team member</div>
+            <div class="ol-auth-feature-title">Role-Based Access</div>
+            <div class="ol-auth-feature-copy">Granular permissions for every team member</div>
           </div>
         </li>
       </ul>
 
       <!-- Brand tagline -->
-      <p style="font-size:var(--ol-fs-xs);opacity:.4;margin-top:var(--ol-space-12);letter-spacing:.06em;text-transform:uppercase;">
+      <p class="ol-auth-brand-tagline">
         &copy; 2026 Overland Logistics &mdash; All rights reserved
       </p>
     </div>
@@ -128,7 +127,7 @@
         <div class="mb-4">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <label for="password" class="form-label mb-0">Password</label>
-            <a href="#" class="text-brand-red" style="font-size:var(--ol-fs-xs);">Forgot password?</a>
+            <a href="#" class="text-brand-red ol-auth-link-xs">Forgot password?</a>
           </div>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-lock"></i></span>
@@ -138,8 +137,8 @@
                    autocomplete="current-password"
                    minlength="8"
                    required>
-            <button class="input-group-text" type="button" id="toggle-password"
-                    aria-label="Toggle password visibility" style="cursor:pointer;">
+            <button class="input-group-text ol-auth-password-toggle" type="button" id="toggle-password"
+                    aria-label="Toggle password visibility">
               <i class="bi bi-eye" id="toggle-password-icon"></i>
             </button>
             <div class="invalid-feedback">Password must be at least 8 characters.</div>
@@ -150,7 +149,7 @@
         <div class="mb-5 d-flex justify-content-between align-items-center">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="remember-me" name="remember">
-            <label class="form-check-label" for="remember-me" style="font-size:var(--ol-fs-sm);">
+            <label class="form-check-label ol-auth-check-label" for="remember-me">
               Keep me signed in
             </label>
           </div>
@@ -168,7 +167,7 @@
       <div class="ol-auth-divider">or</div>
 
       <!-- SSO placeholder -->
-      <button type="button" class="btn btn-outline-secondary w-100 btn-icon" style="font-size:var(--ol-fs-sm);">
+      <button type="button" class="btn btn-outline-secondary w-100 btn-icon ol-auth-sso-btn">
         <i class="bi bi-building"></i>
         Sign in with SSO
       </button>

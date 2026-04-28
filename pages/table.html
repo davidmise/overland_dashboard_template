@@ -141,7 +141,7 @@
               <span class="ol-topbar__user-name">James Smith</span>
               <span class="ol-topbar__user-role">Fleet Manager</span>
             </div>
-            <i class="bi bi-chevron-down ms-1" style="font-size:.75rem;opacity:.5;"></i>
+            <i class="bi bi-chevron-down ms-1 ol-topbar__chevron"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
@@ -180,7 +180,7 @@
 
       <!-- Filters bar -->
       <div class="ol-card mb-4">
-        <div class="ol-card__body" style="padding-top:var(--ol-space-4);padding-bottom:var(--ol-space-4);">
+        <div class="ol-card__body ol-card__body--compact">
           <div class="row g-3 align-items-end">
             <div class="col-12 col-md-4">
               <label class="form-label">Search shipments</label>
@@ -243,7 +243,7 @@
             <table class="ol-table" id="shipments-table" data-sortable aria-label="Shipments table">
               <thead>
                 <tr>
-                  <th style="width:40px;">
+                  <th class="ol-table-col-select">
                     <input class="form-check-input" type="checkbox" id="select-all"
                            aria-label="Select all rows">
                   </th>
@@ -255,7 +255,7 @@
                   <th data-col="6">ETA <i class="bi bi-arrow-down-up sort-icon"></i></th>
                   <th data-col="7">Weight (kg) <i class="bi bi-arrow-down-up sort-icon"></i></th>
                   <th data-col="8">Status <i class="bi bi-arrow-down-up sort-icon"></i></th>
-                  <th style="width:120px;">Actions</th>
+                  <th class="ol-table-col-actions">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -484,10 +484,10 @@
         <!-- Table footer / pagination -->
         <div class="ol-card__footer d-flex flex-wrap justify-content-between align-items-center gap-3">
           <div class="d-flex align-items-center gap-3">
-            <span class="text-muted" style="font-size:var(--ol-fs-xs);">Showing 1–12 of 248</span>
+            <span class="text-muted ol-meta-text-xs">Showing 1–12 of 248</span>
             <div class="d-flex align-items-center gap-2">
-              <label for="per-page" class="form-label mb-0" style="font-size:var(--ol-fs-xs);white-space:nowrap;">Rows per page</label>
-              <select class="form-select form-select-sm" id="per-page" style="width:80px;">
+              <label for="per-page" class="form-label mb-0 ol-form-label-xs-nowrap">Rows per page</label>
+              <select class="form-select form-select-sm ol-select-w-80" id="per-page">
                 <option>12</option>
                 <option>25</option>
                 <option>50</option>
